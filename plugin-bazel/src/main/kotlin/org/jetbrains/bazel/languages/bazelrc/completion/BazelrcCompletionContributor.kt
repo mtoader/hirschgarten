@@ -23,6 +23,8 @@ class BazelrcCompletionContributor : CompletionContributor() {
     extend(CompletionType.BASIC, BazelCommandCompletionProvider.psiPattern, BazelCommandCompletionProvider())
     extend(CompletionType.BASIC, BazelImportCompletionProvider.psiPattern, BazelImportCompletionProvider())
     extend(CompletionType.BASIC, BazelConfigCompletionProvider.psiPattern, BazelConfigCompletionProvider())
+
+    extend(CompletionType.BASIC, BazelFlagsCompletionProvider.psiPattern, BazelFlagsCompletionProvider())
   }
 }
 
