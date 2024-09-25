@@ -147,6 +147,8 @@
                 language="Bazelrc"
                 implementationClass="org.jetbrains.bazel.languages.bazelrc.completion.BazelrcCompletionContributor"/>
 
+        <psi.implicitReferenceProvider
+                implementation="org.jetbrains.bazel.languages.bazelrc.completion.BazelFlagImplicitReferenceProvider" />
 
         <projectConfigurable
                 parentId="build.tools"

@@ -9,13 +9,17 @@ import com.intellij.util.ProcessingContext
 import org.jetbrains.bazel.languages.bazelrc.BazelrcLanguage
 import org.jetbrains.bazel.languages.bazelrc.elements.BazelrcElementTypes
 
+
 class BazelFlagsCompletionProvider : CompletionProvider<CompletionParameters>() {
+
+  val x = BazelFlags
+
   override fun addCompletions(
     parameters: CompletionParameters,
     context: ProcessingContext,
     result: CompletionResultSet,
   ) {
-    BazelFlag.allFlags().values.map { it.addLookupElements(result) }
+    BazelFlag.allFlags().values.map { it.addLookupElements(result, parameters.position.project) }
   }
 
   companion object {

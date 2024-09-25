@@ -21,7 +21,7 @@ object BazelFlags {
       description = """
         Additional places to search for archives before accessing the network to 
         download them.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -32,7 +32,7 @@ object BazelFlags {
       description = """
         If set, the repository cache will hardlink the file in case of a cache hit, 
         rather than copying. This is intended to save disk space.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "0"
@@ -44,7 +44,7 @@ object BazelFlags {
       description = """
         The maximum number of attempts to retry a download error. If set to 0, 
         retries are disabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a double
   // default: "1.0"
@@ -57,7 +57,7 @@ object BazelFlags {
         Scale all timeouts in Starlark repository rules by this factor. In this 
         way, external repositories can be made working on machines that are slower 
         than the rule author expected, without changing the source code
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "8"
@@ -68,7 +68,7 @@ object BazelFlags {
       name = "http_connector_attempts",
       description = """
         The maximum number of attempts for http downloads.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "0s"
@@ -80,7 +80,7 @@ object BazelFlags {
       description = """
         The maximum timeout for http download retries. With a value of 0, no 
         timeout maximum is defined.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a double
   // default: "1.0"
@@ -91,7 +91,7 @@ object BazelFlags {
       name = "http_timeout_scaling",
       description = """
         Scale all timeouts related to http downloads by the given factor
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -104,7 +104,7 @@ object BazelFlags {
         repo rules must be used instead. Native repo rules include 
         local_repository, new_local_repository, local_config_platform, 
         android_sdk_repository, and android_ndk_repository.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -118,7 +118,7 @@ object BazelFlags {
         fetching of external repositories. An empty string as argument requests the 
         cache to be disabled, otherwise the default of 
         '<output_user_root>/cache/repos/v1' is used
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -131,7 +131,7 @@ object BazelFlags {
         repository fetching. Note that network access is not completely disabled; 
         ctx.execute could still run an arbitrary executable that accesses the 
         Internet.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that control build execution:
@@ -145,7 +145,7 @@ object BazelFlags {
         Don't perform the build, just check if it is up-to-date.  If all targets 
         are up-to-date, the build completes successfully.  If any step needs to be 
         executed an error is reported and the build fails.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "1000"
@@ -157,7 +157,7 @@ object BazelFlags {
       description = """
         How many milliseconds should local execution be delayed, if remote 
         execution was faster during a build at least once?
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a '[name=]value1[,..,valueN]' assignment
   // may be used multiple times
@@ -175,7 +175,7 @@ object BazelFlags {
         list is `worker,sandboxed`, or`worker,sandboxed,standalone` if 
         `experimental_local_lockfree_output` is set. Takes [mnemonic=]local_strategy
         [,local_strategy,...]
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a '[name=]value1[,..,valueN]' assignment
   // may be used multiple times
@@ -190,7 +190,7 @@ object BazelFlags {
         strategies is used as the fallback for all mnemonics. The default fallback 
         list is `remote`, so this flag usually does not need to be set explicitly. 
         Takes [mnemonic=]remote_strategy[,remote_strategy,...]
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -206,7 +206,7 @@ object BazelFlags {
         remote_execution_properties in the platform description. The value of this 
         flag is passed verbatim to 'docker run', so it supports the same syntax and 
         mechanisms as Docker itself.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -220,7 +220,7 @@ object BazelFlags {
         user having a name and home directory inside the container. This is on by 
         default, but you can disable it in case the automatic image customization 
         feature doesn't work in your case or you know that you don't need it.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -232,7 +232,7 @@ object BazelFlags {
         When set, targets that are build "for tool" are not subject to dynamic 
         execution. Such targets are extremely unlikely to be built incrementally 
         and thus not worth spending local cycles on.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a double
   // default: "0"
@@ -252,7 +252,7 @@ object BazelFlags {
         scheduled actions when the number of actions waiting to schedule is high. 
         This lessens the load on the local machine in the clean build case, where 
         the local machine does not contribute much.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "0"
@@ -266,7 +266,7 @@ object BazelFlags {
         prioritize its local execution to avoid remote timeouts. This may hide some 
         problems on the remote execution system. Do not turn this on without 
         monitoring of remote execution issues.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -277,7 +277,7 @@ object BazelFlags {
       description = """
         Enable Docker-based sandboxing. This option has no effect if Docker is not 
         installed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -291,7 +291,7 @@ object BazelFlags {
         amount of I/O needed during reuse. Depending on the build this flag may 
         improve wall time. Depending on the build as well this flag may use a 
         significant amount of additional memory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -301,7 +301,7 @@ object BazelFlags {
       name = "experimental_inprocess_symlink_creation",
       description = """
         Whether to make direct file system calls to create symlink trees
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -311,7 +311,7 @@ object BazelFlags {
       name = "experimental_persistent_aar_extractor",
       description = """
         Enable persistent aar extractor by using workers.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -321,7 +321,7 @@ object BazelFlags {
       name = "experimental_remotable_source_manifests",
       description = """
         Whether to make source manifest actions remotable
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // default: "4"
@@ -336,7 +336,7 @@ object BazelFlags {
         deletion of such threes on an asynchronous thread pool that has size 1 when 
         the build is running and grows to the size specified by this flag when the 
         server is idle.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer number of MBs, or "HOST_RAM", optionally followed by [-|*]<float>.
   // default: "0"
@@ -349,7 +349,7 @@ object BazelFlags {
         If > 0, each Linux sandbox will be limited to the given amount of memory 
         (in MB). Requires cgroups v1 or v2 and permissions for the users to the 
         cgroups dir.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -361,7 +361,7 @@ object BazelFlags {
         If enabled, could shrink worker pool if worker memory pressure is high. 
         This flag works only when flag experimental_total_worker_memory_limit_mb is 
         enabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -372,7 +372,7 @@ object BazelFlags {
       description = """
         If true, then Bazel will run coverage postprocessing for test in a new 
         spawn.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -385,7 +385,7 @@ object BazelFlags {
         then Bazel uses a separate action to generate a dummy test.xml file 
         containing the test log. Otherwise, Bazel generates a test.xml as part of 
         the test action.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -397,7 +397,7 @@ object BazelFlags {
         If this option is enabled, filesets will treat all output artifacts as 
         regular files. They will not traverse directories or be sensitive to 
         symlinks.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer number of MBs, or "HOST_RAM", optionally followed by [-|*]<float>.
   // default: "0"
@@ -409,7 +409,7 @@ object BazelFlags {
       description = """
         If this limit is greater than zero idle workers might be killed if the 
         total memory usage of all  workers exceed the limit.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer in (-1)-1073741819 range
   // default: "1048576"
@@ -421,7 +421,7 @@ object BazelFlags {
       description = """
         The maximum size of the stdout / stderr files that will be printed to the 
         console. -1 implies no limit.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -435,7 +435,7 @@ object BazelFlags {
         instead of symlinked to from the sandbox. If action input files are located 
         on a filesystem different from the sandbox, then the input files will be 
         copied instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -446,7 +446,7 @@ object BazelFlags {
       description = """
         If set to true, additionally use semaphore to limit number of concurrent 
         jobs.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a tri-state (auto, yes, no)
   // default: "false"
@@ -460,7 +460,7 @@ object BazelFlags {
         experimental_windows_sandbox_path must be valid and correspond to a 
         supported version of sandboxfs. If "auto", the binary may be missing or not 
         compatible.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: "BazelSandbox.exe"
@@ -473,7 +473,7 @@ object BazelFlags {
         Path to the Windows sandbox binary to use when --
         experimental_use_windows_sandbox is true. If a bare name, use the first 
         binary of that name found in the PATH.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated set of options
   // default: see description
@@ -485,7 +485,7 @@ object BazelFlags {
       description = """
         If non-empty, only allow using persistent workers with the given worker key 
         mnemonic.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -495,7 +495,7 @@ object BazelFlags {
       name = "experimental_worker_as_resource",
       description = """
         No-op, will be removed soon.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -506,7 +506,7 @@ object BazelFlags {
       description = """
         If enabled, Bazel may send cancellation requests to workers that support 
         them.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer number of MBs, or "HOST_RAM", optionally followed by [-|*]<float>.
   // default: "0"
@@ -520,7 +520,7 @@ object BazelFlags {
         usage of the worker exceeds the limit. If not used together with dynamic 
         execution and `--experimental_dynamic_ignore_local_signals=9`, this may 
         crash your build.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "5s"
@@ -532,7 +532,7 @@ object BazelFlags {
       description = """
         The interval between collecting worker metrics and possibly attempting 
         evictions. Cannot effectively be less than 1s for performance reasons.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -544,7 +544,7 @@ object BazelFlags {
         If enabled, multiplex workers will be sandboxed, using a separate sandbox 
         directory per work request. Only workers that have the 'supports-multiplex-
         sandboxing' execution requirement will be sandboxed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -555,7 +555,7 @@ object BazelFlags {
       description = """
         If enabled, workers are run in a hardened sandbox, if the implementation 
         allows it.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -567,7 +567,7 @@ object BazelFlags {
         If enabled, actions arguments for workers that do not follow the worker 
         specification will cause an error. Worker arguments must have exactly one 
         @flagfile argument as the last of its list of arguments.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer in 0-100 range
   // default: "100"
@@ -580,7 +580,7 @@ object BazelFlags {
         The percent of tenured space occupied (0-100) above which 
         GcThrashingDetector considers memory pressure events against its limits (--
         gc_thrashing_limits). If set to 100, GcThrashingDetector is disabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: ""
@@ -593,7 +593,7 @@ object BazelFlags {
         Specify how to execute genrules. This flag will be phased out. Instead, use 
         --spawn_strategy=<value> to control all actions or --
         strategy=Genrule=<value> to control genrules only.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -604,7 +604,7 @@ object BazelFlags {
       name = "high_priority_workers",
       description = """
         No-op, will be removed soon.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -616,7 +616,7 @@ object BazelFlags {
         If set, it is an error for an action to materialize an output file as a 
         directory. Does not affect source directories. See https://github.
         com/bazelbuild/bazel/issues/18646.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -627,7 +627,7 @@ object BazelFlags {
       description = """
         When enabled, passing multiple --modify_execution_info flags is additive. 
         When disabled, only the last flag is taken into account.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -638,7 +638,7 @@ object BazelFlags {
       description = """
         If set to true, symlinks uploaded to a remote or disk cache are allowed to 
         dangle.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -650,7 +650,7 @@ object BazelFlags {
         If set to true, Bazel will always upload symlinks as such to a remote or 
         disk cache. Otherwise, non-dangling relative symlinks (and only those) will 
         be uploaded as the file or directory they point to.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -663,7 +663,7 @@ object BazelFlags {
         directory mounted as /tmp rather than sharing /tmp with the host 
         filesystem. Use --sandbox_add_mount_pair=/tmp to keep seeing the host's 
         /tmp in all sandboxes.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -674,7 +674,7 @@ object BazelFlags {
       description = """
         Placeholder option so that we can tell in Blaze whether the spawn scheduler 
         was enabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // default: "auto"
@@ -689,7 +689,7 @@ object BazelFlags {
 *]<float>) eg. "auto", "HOST_CPUS*.5". Values must be between 1 and 5000. 
         Values above 2500 may cause memory issues. "auto" calculates a reasonable 
         default based on host resources.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -701,7 +701,7 @@ object BazelFlags {
         Continue as much as possible after an error.  While the target that failed 
         and those that depend on it cannot be analyzed, other prerequisites of 
         these targets can be.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // default: "auto"
@@ -715,7 +715,7 @@ object BazelFlags {
         integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally 
         followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5". "auto" 
         sets a reasonable default based on host resources. Must be at least 1.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // regex=[+-]key,regex=[+-]key,...
   // may be used multiple times
@@ -740,7 +740,7 @@ object BazelFlags {
         Genrule actions.
           '(?!Genrule).*=-requires-x' removes 'requires-x' from the execution info 
         for all non-Genrule actions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // regex=[+-]key,regex=[+-]key,...
   // may be used multiple times
@@ -753,7 +753,7 @@ object BazelFlags {
         Enable persistent Android dex and desugar actions by using workers.
           Expands to: --internal_persistent_android_dex_desugar --
           strategy=Desugar=worker --strategy=DexBuilder=worker
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // regex=[+-]key,regex=[+-]key,...
   // may be used multiple times
@@ -776,7 +776,7 @@ object BazelFlags {
           strategy=Aapt2Optimize=worker --strategy=AARGenerator=worker --
           strategy=ProcessDatabinding=worker --
           strategy=GenerateDataBindingBaseClasses=worker
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // regex=[+-]key,regex=[+-]key,...
   // may be used multiple times
@@ -790,7 +790,7 @@ object BazelFlags {
         workers.
           Expands to: --persistent_android_dex_desugar --
           internal_persistent_multiplex_android_dex_desugar
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // regex=[+-]key,regex=[+-]key,...
   // may be used multiple times
@@ -817,7 +817,7 @@ object BazelFlags {
           workers --modify_execution_info=AndroidManifestMerger=+supports-multiplex-
           workers --modify_execution_info=Aapt2Optimize=+supports-multiplex-workers 
           --modify_execution_info=AARGenerator=+supports-multiplex-workers
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // regex=[+-]key,regex=[+-]key,...
   // may be used multiple times
@@ -832,7 +832,7 @@ object BazelFlags {
           Expands to: --internal_persistent_multiplex_busybox_tools --
           persistent_multiplex_android_resource_processor --
           persistent_multiplex_android_dex_desugar
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -843,7 +843,7 @@ object BazelFlags {
       description = """
         If set to true, directories used by sandboxed non-worker execution may be 
         reused to avoid unnecessary setup costs.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -858,7 +858,7 @@ object BazelFlags {
         lot when your build / tests have many input files. Note: You need enough 
         RAM and free space on the tmpfs to hold output and intermediate files 
         generated by running actions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -872,7 +872,7 @@ object BazelFlags {
         'tty' inside the sandbox in order for pseudoterminals to function. If this 
         is causing issues, this flag can be disabled to enable other groups to be 
         used.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an absolute path
   // may be used multiple times
@@ -884,7 +884,7 @@ object BazelFlags {
       description = """
         For sandboxed actions, mount an empty, writable directory at this absolute 
         path (if supported by the sandboxing implementation, ignored otherwise).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -897,7 +897,7 @@ object BazelFlags {
         By default, building such targets results in an error but they are silently 
         skipped when this option is enabled. See: https://bazel.
         build/extending/platforms#skipping-incompatible-targets
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: ""
@@ -912,7 +912,7 @@ object BazelFlags {
         action Bazel picks the strategy with the highest priority that can execute 
         the action. The default value is "remote,worker,sandboxed,local". See https:
         //blog.bazel.build/2019/06/19/list-strategy.html for details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a '[name=]value1[,..,valueN]' assignment
   // may be used multiple times
@@ -929,7 +929,7 @@ object BazelFlags {
         This flag overrides the values set by --spawn_strategy (and --
         genrule_strategy if used with mnemonic Genrule). See https://blog.bazel.
         build/2019/06/19/list-strategy.html for details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a '<RegexFilter>=value[,value]' assignment
   // may be used multiple times
@@ -949,7 +949,7 @@ object BazelFlags {
         strategy_regexp=Compiling=sandboxed will run 'Compiling //foo/bar/baz' with 
         the 'local' strategy, but reversing the order would run it with 
         'sandboxed'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -960,7 +960,7 @@ object BazelFlags {
       description = """
         If true, then Bazel will use the target platform for running tests rather 
         than the test exec group.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -973,7 +973,7 @@ object BazelFlags {
         Extra command-flags that will be passed to worker processes in addition to 
         --persistent_worker, keyed by mnemonic (e.g. --worker_extra_flag=Javac=--
         debug.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // [name=]value, where value is an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // may be used multiple times
@@ -992,7 +992,7 @@ object BazelFlags {
         "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", 
         "HOST_CPUS*.5". 'auto' calculates a reasonable default based on machine 
         capacity. "=value" sets a default for unspecified mnemonics.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // [name=]value, where value is an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // may be used multiple times
@@ -1012,7 +1012,7 @@ object BazelFlags {
 *]<float>) eg. "auto", "HOST_CPUS*.5". 'auto' calculates a reasonable 
         default based on machine capacity. "=value" sets a default for unspecified 
         mnemonics.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1022,7 +1022,7 @@ object BazelFlags {
       name = "worker_multiplex",
       description = """
         If enabled, workers will use multiplexing if they support it.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1032,7 +1032,7 @@ object BazelFlags {
       name = "worker_quit_after_build",
       description = """
         If enabled, all workers quit after a build is done.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1042,7 +1042,7 @@ object BazelFlags {
       name = "worker_sandboxing",
       description = """
         If enabled, workers will be executed in a sandboxed environment.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1052,7 +1052,7 @@ object BazelFlags {
       name = "worker_verbose",
       description = """
         If enabled, prints verbose messages when workers are started, shutdown, ...
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that configure the toolchain used for action execution:
@@ -1065,7 +1065,7 @@ object BazelFlags {
       name = "android_compiler",
       description = """
         The Android target compiler.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "//external:android/crosstool"
@@ -1076,7 +1076,7 @@ object BazelFlags {
       name = "android_crosstool_top",
       description = """
         The location of the C++ compiler used for Android builds.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a label
   // default: see description
@@ -1087,7 +1087,7 @@ object BazelFlags {
       name = "android_grte_top",
       description = """
         The Android target grte_top.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // legacy, android or force_android
   // default: "android"
@@ -1099,7 +1099,7 @@ object BazelFlags {
       description = """
         Selects the manifest merger to use for android_binary rules. Flag to help 
         thetransition to the Android manifest merger from the legacy merger.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: ""
@@ -1112,7 +1112,7 @@ object BazelFlags {
         Sets the platforms that android_binary targets use. If multiple platforms 
         are specified, then the binary is a fat APKs, which contains native 
         binaries for each specified target platform.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/android:sdk"
@@ -1123,7 +1123,7 @@ object BazelFlags {
       name = "android_sdk",
       description = """
         Specifies Android SDK/platform that is used to build Android applications.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/cpp:toolchain"
@@ -1135,7 +1135,7 @@ object BazelFlags {
       description = """
         The label of the crosstool package to be used in Apple and Objc rules and 
         their dependencies.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -1146,7 +1146,7 @@ object BazelFlags {
       name = "cc_output_directory_tag",
       description = """
         Specifies a suffix to be added to the configuration directory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1157,7 +1157,7 @@ object BazelFlags {
       name = "compiler",
       description = """
         The C++ compiler to use for compiling the target.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/test:lcov_merger"
@@ -1170,7 +1170,7 @@ object BazelFlags {
         Location of the binary that is used to postprocess raw coverage reports. 
         This must currently be a filegroup that contains a single file, the binary. 
         Defaults to '//tools/test:lcov_merger'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/test:coverage_report_generator"
@@ -1183,7 +1183,7 @@ object BazelFlags {
         Location of the binary that is used to generate coverage reports. This must 
         currently be a filegroup that contains a single file, the binary. Defaults 
         to '//tools/test:coverage_report_generator'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/test:coverage_support"
@@ -1196,7 +1196,7 @@ object BazelFlags {
         Location of support files that are required on the inputs of every test 
         action that collects code coverage. Defaults to '//tools/test:
         coverage_support'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/cpp:toolchain"
@@ -1207,7 +1207,7 @@ object BazelFlags {
       name = "crosstool_top",
       description = """
         The label of the crosstool package to be used for compiling C++ code.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -1219,7 +1219,7 @@ object BazelFlags {
       description = """
         Specifies a custom malloc implementation. This setting overrides malloc 
         attributes in build rules.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a '<RegexFilter>=<label1>[,<label2>,...]' assignment
   // may be used multiple times
@@ -1236,7 +1236,7 @@ object BazelFlags {
         declared the constraint values as execution constraints. Example: //demo,-
         test=@platforms//cpus:x86_64 will add 'x86_64' to any target under //demo 
         except for those whose name contains 'test'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1248,7 +1248,7 @@ object BazelFlags {
         If set, add a "requires-xcode:{version}" execution requirement to every 
         Xcode action.  If the xcode version has a hyphenated label,  also add a 
         "requires-xcode-label:{version_label}" execution requirement.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1260,7 +1260,7 @@ object BazelFlags {
         If true, use the most recent Xcode that is available both locally and 
         remotely. If false, or if there are no mutual available versions, use the 
         local Xcode version selected via xcode-select.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: ""
@@ -1275,7 +1275,7 @@ object BazelFlags {
         platforms will be considered before those declared in the WORKSPACE file by 
         register_execution_platforms(). This option may only be set once; later 
         instances will override earlier flag settings.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -1289,7 +1289,7 @@ object BazelFlags {
         Toolchains can be specified by exact target, or as a target pattern. These 
         toolchains will be considered before those declared in the WORKSPACE file 
         by register_toolchains().
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a label
   // default: see description
@@ -1301,7 +1301,7 @@ object BazelFlags {
       description = """
         A label to a checked-in libc library. The default value is selected by the 
         crosstool toolchain, and you almost never need to override it.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1313,7 +1313,7 @@ object BazelFlags {
       description = """
         The C++ compiler to use for host compilation. It is ignored if --
         host_crosstool_top is not set.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -1326,7 +1326,7 @@ object BazelFlags {
         By default, the --crosstool_top and --compiler options are also used for 
         the exec configuration. If this flag is provided, Bazel uses the default 
         libc and compiler for the given crosstool_top.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a label
   // default: see description
@@ -1338,7 +1338,7 @@ object BazelFlags {
       description = """
         If specified, this setting overrides the libc top-level directory (--
         grte_top) for the exec configuration.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools:host_platform"
@@ -1349,7 +1349,7 @@ object BazelFlags {
       name = "host_platform",
       description = """
         The label of a platform rule that describes the host system.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1361,7 +1361,7 @@ object BazelFlags {
         If true, Bazel will not enable 'host' and 'nonhost' features in the c++ 
         toolchain (see https://github.com/bazelbuild/bazel/issues/7407 for more 
         information).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1372,7 +1372,7 @@ object BazelFlags {
       description = """
         Use toolchain resolution to select the Android SDK for android rules 
         (Starlark and native)
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1383,7 +1383,7 @@ object BazelFlags {
       description = """
         Use toolchain resolution to select the Apple SDK for apple rules (Starlark 
         and native)
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1394,7 +1394,7 @@ object BazelFlags {
       description = """
         If true, proto lang rules define toolchains from rules_proto, rules_java, 
         rules_cc repositories.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1406,7 +1406,7 @@ object BazelFlags {
         If true, Bazel will not reuse C++ link action command lines for lto 
         indexing command lines (see https://github.com/bazelbuild/bazel/issues/6791 
         for more information).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1418,7 +1418,7 @@ object BazelFlags {
         If true, Bazel will not link library dependencies as whole archive by 
         default (see https://github.com/bazelbuild/bazel/issues/7362 for migration 
         instructions).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1430,7 +1430,7 @@ object BazelFlags {
         If true, Bazel will require 'ctx' parameter in to cc_common.
         configure_features (see https://github.com/bazelbuild/bazel/issues/7793 for 
         more information).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1441,7 +1441,7 @@ object BazelFlags {
       description = """
         Use interface shared objects if supported by the toolchain. All ELF 
         toolchains currently support this setting.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -1453,7 +1453,7 @@ object BazelFlags {
       description = """
         Specifies the version of the iOS SDK to use to build iOS applications. If 
         unspecified, uses default iOS SDK version from 'xcode_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -1465,7 +1465,7 @@ object BazelFlags {
       description = """
         Specifies the version of the macOS SDK to use to build macOS applications. 
         If unspecified, uses default macOS SDK version from 'xcode_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1476,7 +1476,7 @@ object BazelFlags {
       name = "minimum_os_version",
       description = """
         The minimum OS version which your compilation targets.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a relative path
   // default: ""
@@ -1490,7 +1490,7 @@ object BazelFlags {
         is set or which flags to set when a platform already exists. Must be 
         relative to the main workspace root. Defaults to 'platform_mappings' (a 
         file directly under the workspace root).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: ""
@@ -1502,7 +1502,7 @@ object BazelFlags {
       description = """
         The labels of the platform rules describing the target platforms for the 
         current command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1513,7 +1513,7 @@ object BazelFlags {
       name = "python2_path",
       description = """
         Deprecated, no-op. Disabled by `--incompatible_use_python_toolchains`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1524,7 +1524,7 @@ object BazelFlags {
       name = "python3_path",
       description = """
         Deprecated, no-op. Disabled by `--incompatible_use_python_toolchains`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1537,7 +1537,7 @@ object BazelFlags {
         The absolute path of the Python interpreter invoked to run Python targets 
         on the target platform. Deprecated; disabled by --
         incompatible_use_python_toolchains.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -1550,7 +1550,7 @@ object BazelFlags {
         The label of a py_runtime representing the Python interpreter invoked to 
         run Python targets on the target platform. Deprecated; disabled by --
         incompatible_use_python_toolchains.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -1561,7 +1561,7 @@ object BazelFlags {
       name = "target_platform_fallback",
       description = """
         This option is deprecated and has no effect.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -1573,7 +1573,7 @@ object BazelFlags {
       description = """
         Specifies the version of the tvOS SDK to use to build tvOS applications. If 
         unspecified, uses default tvOS SDK version from 'xcode_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -1586,7 +1586,7 @@ object BazelFlags {
         Specifies the version of the watchOS SDK to use to build watchOS 
         applications. If unspecified, uses default watchOS SDK version from 
         'xcode_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -1598,7 +1598,7 @@ object BazelFlags {
       description = """
         If specified, uses Xcode of the given version for relevant build actions. 
         If unspecified, uses the executor default version of Xcode.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/cpp:host_xcodes"
@@ -1610,7 +1610,7 @@ object BazelFlags {
       description = """
         The label of the xcode_config rule to be used for selecting the Xcode 
         version in the build configuration.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that control the output of the command:
@@ -1622,7 +1622,7 @@ object BazelFlags {
       name = "apple_generate_dsym",
       description = """
         Whether to generate debug symbol(.dSYM) file(s).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1635,7 +1635,7 @@ object BazelFlags {
         the build to stop before executing the build actions, returning zero iff 
         the package loading and analysis phases completed successfully; this mode 
         is useful for testing those phases.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1646,7 +1646,7 @@ object BazelFlags {
       description = """
         If true, build runfiles symlink forests for all targets.  If false, write 
         them only when required by a local action, test or run command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1657,7 +1657,7 @@ object BazelFlags {
       description = """
         If true, write runfiles manifests for all targets. If false, omit them. 
         Local tests will fail to run when false.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1668,7 +1668,7 @@ object BazelFlags {
       description = """
         If enabled, when building C++ tests statically and with fission the .dwp 
         file  for the test binary will be automatically built as well.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated set of options
   // default: ".pb.h"
@@ -1679,7 +1679,7 @@ object BazelFlags {
       name = "cc_proto_library_header_suffixes",
       description = """
         Sets the suffixes of header files that a cc_proto_library creates.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated set of options
   // default: ".pb.cc"
@@ -1690,7 +1690,7 @@ object BazelFlags {
       name = "cc_proto_library_source_suffixes",
       description = """
         Sets the suffixes of source files that a cc_proto_library creates.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1700,7 +1700,7 @@ object BazelFlags {
       name = "experimental_proto_descriptor_sets_include_source_info",
       description = """
         Run extra actions for alternative Java api versions in a proto_library.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1710,7 +1710,7 @@ object BazelFlags {
       name = "experimental_proto_extra_actions",
       description = """
         Run extra actions for alternative Java api versions in a proto_library.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1721,7 +1721,7 @@ object BazelFlags {
       description = """
         Save the state of enabled and requested feautres as an output of 
         compilation.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1731,7 +1731,7 @@ object BazelFlags {
       name = "experimental_use_validation_aspect",
       description = """
         Whether to run validation actions using aspect (for parallelism with tests).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a set of compilation modes
   // default: "no"
@@ -1744,7 +1744,7 @@ object BazelFlags {
         Specifies which compilation modes use fission for C++ compilations and 
         links.  May be any combination of {'fastbuild', 'dbg', 'opt'} or the 
         special values 'yes'  to enable all modes and 'no' to disable all modes.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1757,7 +1757,7 @@ object BazelFlags {
         dependencies to their runfiles, which matches the recommended behavior for 
         Starlark rules (https://bazel.
         build/extending/rules#runfiles_features_to_avoid).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1768,7 +1768,7 @@ object BazelFlags {
       description = """
         If true, build runfiles symlink forests for external repositories under .
         runfiles/wsname/external/repo (in addition to .runfiles/repo).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1778,7 +1778,7 @@ object BazelFlags {
       name = "objc_generate_linkmap",
       description = """
         Specifies whether to generate a linkmap file.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -1795,7 +1795,7 @@ object BazelFlags {
         groups is omitted. For example, --output_groups=+foo,+bar builds the union 
         of the default set, foo, and bar, while --output_groups=foo,bar overrides 
         the default set such that only foo and bar are built.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1806,7 +1806,7 @@ object BazelFlags {
       description = """
         Whether to run validation actions as part of the build. See https://bazel.
         build/extending/rules#validation_actions
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1818,7 +1818,7 @@ object BazelFlags {
         If set, temporary outputs from gcc will be saved.  These include .s files 
         (assembler code), .i files (preprocessed C) and .ii files (preprocessed 
         C++).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that let the user configure the intended output, affecting its value, as opposed to its existence:
@@ -1836,7 +1836,7 @@ object BazelFlags {
         pair which sets the value independent of the invocation environment. This 
         option can be used multiple times; for options given for the same variable, 
         the latest wins, options for different variables accumulate.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: "armeabi-v7a"
@@ -1847,7 +1847,7 @@ object BazelFlags {
       name = "android_cpu",
       description = """
         The Android target CPU.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1858,7 +1858,7 @@ object BazelFlags {
       description = """
         Generate AndroidX-compatible data-binding files. This is only used with 
         databinding v2. This flag is a no-op.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -1868,7 +1868,7 @@ object BazelFlags {
       name = "android_databinding_use_v3_4_args",
       description = """
         Use android databinding v2 with 3.4.0 argument. This flag is a no-op.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, default or fully
   // default: "off"
@@ -1883,7 +1883,7 @@ object BazelFlags {
         means bazel will choose whether to link dynamically.  'fully' means all 
         libraries will be linked dynamically. 'off' means that all libraries will 
         be linked in mostly static mode.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // alphabetical, alphabetical_by_configuration or dependency
   // default: "alphabetical"
@@ -1899,7 +1899,7 @@ object BazelFlags {
         relative to the configuration directory within the output directory. 
         DEPENDENCY means manifests are ordered with each library's manifest coming 
         before the manifests of its dependencies.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1909,7 +1909,7 @@ object BazelFlags {
       name = "android_resource_shrinking",
       description = """
         Enables resource shrinking for android_binary APKs that use ProGuard.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -1928,7 +1928,7 @@ object BazelFlags {
         then have access to the values of those aspects' providers. <bzl-file-
         label>%<aspect_name>, for example '//tools:my_def.bzl%my_aspect', where 
         'my_aspect' is a top-level value from a file tools/my_def.bzl
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "-1"
@@ -1939,7 +1939,7 @@ object BazelFlags {
       name = "bep_maximum_open_remote_upload_files",
       description = """
         Maximum number of open files allowed during BEP artifact upload.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a tri-state (auto, yes, no)
   // default: "auto"
@@ -1950,7 +1950,7 @@ object BazelFlags {
       name = "build_python_zip",
       description = """
         Build python executable zip; on on Windows, off on other platforms
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -1962,7 +1962,7 @@ object BazelFlags {
       description = """
         Comma-separated list of architectures for which to build Apple Catalyst 
         binaries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -1976,7 +1976,7 @@ object BazelFlags {
         targets that  match --instrumentation_filter will be affected. Usually this 
         option should  not be specified directly - 'bazel coverage' command should 
         be used instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // fastbuild, dbg or opt
   // default: "fastbuild"
@@ -1988,7 +1988,7 @@ object BazelFlags {
       description = """
         Specify the mode the binary will be built in. Values: 'fastbuild', 'dbg', 
         'opt'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -1999,7 +1999,7 @@ object BazelFlags {
       name = "conlyopt",
       description = """
         Additional option to pass to gcc when compiling C source files.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2010,7 +2010,7 @@ object BazelFlags {
       name = "copt",
       description = """
         Additional options to pass to gcc.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -2021,7 +2021,7 @@ object BazelFlags {
       name = "cpu",
       description = """
         The target CPU.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2034,7 +2034,7 @@ object BazelFlags {
         Use CSFDO profile information to optimize compilation. Specify the absolute 
         path name of the zip file containing the profile file, a raw or an indexed 
         LLVM profile file.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2048,7 +2048,7 @@ object BazelFlags {
         Clang/LLVM compiler, it also accepts the directory name under which the raw 
         profile file(s) will be dumped at runtime.
           Using this option will also add: --copt=-Wno-error
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -2060,7 +2060,7 @@ object BazelFlags {
       description = """
         The cs_fdo_profile representing the context sensitive profile to be used 
         for optimization.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2071,7 +2071,7 @@ object BazelFlags {
       name = "cxxopt",
       description = """
         Additional option to pass to gcc when compiling C++ source files.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -2082,7 +2082,7 @@ object BazelFlags {
       name = "define",
       description = """
         Each --define option specifies an assignment for a build variable.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, default or fully
   // default: "default"
@@ -2096,7 +2096,7 @@ object BazelFlags {
         means Bazel will choose whether to link dynamically.  'fully' means all 
         libraries will be linked dynamically. 'off' means that all libraries will 
         be linked in mostly static mode.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2106,7 +2106,7 @@ object BazelFlags {
       name = "enable_fdo_profile_absolute_path",
       description = """
         If set, use of fdo_absolute_profile_path will raise an error.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a tri-state (auto, yes, no)
   // default: "auto"
@@ -2118,7 +2118,7 @@ object BazelFlags {
       description = """
         Enable runfiles symlink tree; By default, it's off on Windows, on on other 
         platforms.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // may be used multiple times
@@ -2130,7 +2130,7 @@ object BazelFlags {
       description = """
         Deprecated in favor of aspects. Use action_listener to attach an 
         extra_action to existing build actions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2140,7 +2140,7 @@ object BazelFlags {
       name = "experimental_android_compress_java_resources",
       description = """
         Compress Java resources in APKs
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2150,7 +2150,7 @@ object BazelFlags {
       name = "experimental_android_databinding_v2",
       description = """
         Use android databinding v2. This flag is a no-op.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2160,7 +2160,7 @@ object BazelFlags {
       name = "experimental_android_resource_shrinking",
       description = """
         Enables resource shrinking for android_binary APKs that use ProGuard.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2170,7 +2170,7 @@ object BazelFlags {
       name = "experimental_android_rewrite_dexes_with_rex",
       description = """
         use rex tool to rewrite dex files
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2181,7 +2181,7 @@ object BazelFlags {
       description = """
         If specified, Bazel will also generate collect coverage information for 
         generated files.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // normal, clean, ignore or log_only
   // default: "normal"
@@ -2202,7 +2202,7 @@ object BazelFlags {
         Note that only symlinks whose names are generated by the current value of --
         symlink_prefix can be affected; if the prefix changes, any pre-existing 
         symlinks will be left alone.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2217,7 +2217,7 @@ object BazelFlags {
         convenienceSymlinksIdentified, listing all of the convenience symlinks 
         created in your workspace. If false, then the convenienceSymlinksIdentified 
         entry in the BuildEventProtocol will be empty.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: "-O0,-DDEBUG=1"
@@ -2228,7 +2228,7 @@ object BazelFlags {
       name = "experimental_objc_fastbuild_options",
       description = """
         Uses these strings as objc fastbuild compiler options.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2239,7 +2239,7 @@ object BazelFlags {
       description = """
         If true, use libunwind for stack unwinding, and compile with -fomit-frame-
         pointer and -fasynchronous-unwind-tables.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, content or strip
   // default: "off"
@@ -2254,7 +2254,7 @@ object BazelFlags {
         highly experimental. See https://github.com/bazelbuild/bazel/issues/6526 
         for details. Starlark actions canopt into path mapping by adding the key 
         'supports-path-mapping' to the 'execution_requirements' dict.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'label=value' assignment
   // may be used multiple times
@@ -2268,7 +2268,7 @@ object BazelFlags {
         platform and values is the desired shortname to use in the output path. 
         Only used when --experimental_platform_in_output_dir is true. Has highest 
         naming priority.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2286,7 +2286,7 @@ object BazelFlags {
         used. Then, if --experimental_use_platforms_in_output_dir_legacy_heuristic 
         is set, use a shortname based off the current platform Label. Finally, a 
         hash of the platform option is used as a last resort.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2297,7 +2297,7 @@ object BazelFlags {
       description = """
         If specified, Bazel will generate llvm-cov coverage map information rather 
         than gcov when collect_code_coverage is enabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2310,7 +2310,7 @@ object BazelFlags {
         strategy. Note that the heuristic has known deficiencies and it is 
         suggested to migrate to relying on just --
         experimental_override_name_platform_in_output_dir.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated set of options
   // default: "armeabi-v7a"
@@ -2324,7 +2324,7 @@ object BazelFlags {
         specified target architectures, e.g., --fat_apk_cpu=x86,armeabi-v7a. If 
         this flag is specified, then --android_cpu is ignored for dependencies of 
         android_binary rules.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2334,7 +2334,7 @@ object BazelFlags {
       name = "fat_apk_hwasan",
       description = """
         Whether to create HWASAN splits.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2348,7 +2348,7 @@ object BazelFlags {
         also accepts the directory name under which the raw profile file(s) will be 
         dumped at runtime.
           Using this option will also add: --copt=-Wno-error
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2365,7 +2365,7 @@ object BazelFlags {
         directive to the corresponding package) and labels pointing to 
         `fdo_profile` targets. This flag will be superseded by the `fdo_profile` 
         rule.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -2376,7 +2376,7 @@ object BazelFlags {
       name = "fdo_prefetch_hints",
       description = """
         Use cache prefetch hints.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -2387,7 +2387,7 @@ object BazelFlags {
       name = "fdo_profile",
       description = """
         The fdo_profile representing the profile to be used for optimization.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2401,7 +2401,7 @@ object BazelFlags {
         in the target configuration. Specifying -<feature> will disable the 
         feature. Negative features always override positive ones. See also --
         host_features
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2413,7 +2413,7 @@ object BazelFlags {
         If enabled, all C++ compilations produce position-independent code ("-
         fPIC"), links prefer PIC pre-built libraries over non-PIC libraries, and 
         links produce position-independent executables ("-pie").
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment with an optional value part
   // may be used multiple times
@@ -2430,7 +2430,7 @@ object BazelFlags {
         environment. This option can be used multiple times; for options given for 
         the same variable, the latest wins, options for different variables 
         accumulate.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // fastbuild, dbg or opt
   // default: "opt"
@@ -2442,7 +2442,7 @@ object BazelFlags {
       description = """
         Specify the mode the tools used during the build will be built in. Values: 
         'fastbuild', 'dbg', 'opt'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2454,7 +2454,7 @@ object BazelFlags {
       description = """
         Additional option to pass to the C compiler when compiling C (but not C++) 
         source files in the exec configurations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2466,7 +2466,7 @@ object BazelFlags {
       description = """
         Additional options to pass to the C compiler for tools built in the exec 
         configurations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -2477,7 +2477,7 @@ object BazelFlags {
       name = "host_cpu",
       description = """
         The host CPU.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2489,7 +2489,7 @@ object BazelFlags {
       description = """
         Additional options to pass to C++ compiler for tools built in the exec 
         configurations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2502,7 +2502,7 @@ object BazelFlags {
         The given features will be enabled or disabled by default for targets built 
         in the exec configuration. Specifying -<feature> will disable the feature. 
         Negative features always override positive ones.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // PY2 or PY3
   // default: see description
@@ -2514,7 +2514,7 @@ object BazelFlags {
       description = """
         Overrides the Python version for the exec configuration. Can be "PY2" or 
         "PY3".
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2526,7 +2526,7 @@ object BazelFlags {
       description = """
         Additional option to pass to linker when linking tools in the exec 
         configurations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -2538,7 +2538,7 @@ object BazelFlags {
       description = """
         Minimum compatible macOS version for host targets. If unspecified, uses 
         'macos_sdk_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of regex expressions with prefix '-' specifying excluded paths followed by an @ and a comma separated list of options
   // may be used multiple times
@@ -2558,7 +2558,7 @@ object BazelFlags {
         to split the string. Example: --host_per_file_copt=//foo/.*\.cc,-//foo/bar\.
         cc@-O0 adds the -O0 command line option to the gcc command line of all cc 
         files in //foo/ except bar.cc.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2569,7 +2569,7 @@ object BazelFlags {
       name = "host_swiftcopt",
       description = """
         Additional options to pass to swiftc for exec tools.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2582,7 +2582,7 @@ object BazelFlags {
         used by a rule. For this to work rule needs to specify `toolchain` 
         parameter on its actions. For more information, see https://github.
         com/bazelbuild/bazel/issues/17134.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2592,7 +2592,7 @@ object BazelFlags {
       name = "incompatible_merge_genfiles_directory",
       description = """
         If true, the genfiles directory is folded into the bin directory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2603,7 +2603,7 @@ object BazelFlags {
       description = """
         If true, use --features only for the target configuration and --
         host_features for the exec configuration.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2616,7 +2616,7 @@ object BazelFlags {
         rules. When set, test rules included by --instrumentation_filter are 
         instrumented. Otherwise, test rules are always excluded from coverage 
         instrumentation.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of regex expressions with prefix '-' specifying excluded paths
   // default: "-/javatests[/:],-/test/java[/:]"
@@ -2630,7 +2630,7 @@ object BazelFlags {
         regex-based filter will be instrumented. Rules prefixed with '-' are 
         excluded instead. Note that only non-test rules are instrumented unless --
         instrument_test_targets is enabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -2642,7 +2642,7 @@ object BazelFlags {
       description = """
         Minimum compatible iOS version for target simulators and devices. If 
         unspecified, uses 'ios_sdk_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -2654,7 +2654,7 @@ object BazelFlags {
       description = """
         Comma-separated list of architectures to build an ios_application with. The 
         result is a universal binary containing all specified architectures.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2669,7 +2669,7 @@ object BazelFlags {
         linkstatic=True or '-static' in linkopts. This is for backwards 
         compatibility only. A better alternative is to use alwayslink=1 where 
         required.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2680,7 +2680,7 @@ object BazelFlags {
       name = "linkopt",
       description = """
         Additional option to pass to gcc when linking.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2692,7 +2692,7 @@ object BazelFlags {
       description = """
         Additional option to pass to the LTO backend step (under --
         features=thin_lto).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2704,7 +2704,7 @@ object BazelFlags {
       description = """
         Additional option to pass to the LTO indexing step (under --
         features=thin_lto).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -2716,7 +2716,7 @@ object BazelFlags {
       description = """
         Comma-separated list of architectures for which to build Apple macOS 
         binaries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -2728,7 +2728,7 @@ object BazelFlags {
       description = """
         Minimum compatible macOS version for targets. If unspecified, uses 
         'macos_sdk_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -2739,7 +2739,7 @@ object BazelFlags {
       name = "memprof_profile",
       description = """
         Use memprof profile.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2750,7 +2750,7 @@ object BazelFlags {
       description = """
         If set, and compilation mode is set to 'dbg', define GLIBCXX_DEBUG,  
         GLIBCXX_DEBUG_PEDANTIC and GLIBCPP_CONCEPT_CHECKS.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2762,7 +2762,7 @@ object BazelFlags {
         Whether to perform symbol and dead-code strippings on linked binaries. 
         Binary strippings will be performed if both this flag and --
         compilation_mode=opt are specified.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -2774,7 +2774,7 @@ object BazelFlags {
       description = """
         Additional options to pass to gcc when compiling Objective-C/C++ source 
         files.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of regex expressions with prefix '-' specifying excluded paths followed by an @ and a comma separated list of options
   // may be used multiple times
@@ -2793,7 +2793,7 @@ object BazelFlags {
         @. Only the first @ is used to split the string. Example: --
         per_file_copt=//foo/.*\.cc,-//foo/bar\.cc@-O0 adds the -O0 command line 
         option to the gcc command line of all cc files in //foo/ except bar.cc.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of regex expressions with prefix '-' specifying excluded paths followed by an @ and a comma separated list of options
   // may be used multiple times
@@ -2813,7 +2813,7 @@ object BazelFlags {
         the string. Example: --per_file_ltobackendopt=//foo/.*\.o,-//foo/bar\.o@-O0 
         adds the -O0 command line option to the LTO backend command line of all o 
         files in //foo/ except bar.o.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2824,7 +2824,7 @@ object BazelFlags {
       name = "platform_suffix",
       description = """
         Specifies a suffix to be added to the configuration directory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -2843,7 +2843,7 @@ object BazelFlags {
         An exports_files directive may have to be added to the corresponding 
         package to make these files visible to Bazel. The option must be used as: --
         propeller_optimize=//a/b:propeller_profile
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2854,7 +2854,7 @@ object BazelFlags {
       name = "propeller_optimize_absolute_cc_profile",
       description = """
         Absolute path name of cc_profile file for Propeller Optimized builds.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2865,7 +2865,7 @@ object BazelFlags {
       name = "propeller_optimize_absolute_ld_profile",
       description = """
         Absolute path name of ld_profile file for Propeller Optimized builds.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2878,7 +2878,7 @@ object BazelFlags {
         Downloads all remote outputs to the local machine. This flag is an alias 
         for --remote_download_outputs=all.
           Expands to: --remote_download_outputs=all
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -2891,7 +2891,7 @@ object BazelFlags {
         Does not download any remote build outputs to the local machine. This flag 
         is an alias for --remote_download_outputs=minimal.
           Expands to: --remote_download_outputs=minimal
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // all, minimal or toplevel
   // default: "toplevel"
@@ -2906,7 +2906,7 @@ object BazelFlags {
         behaves like'minimal' except that it also downloads outputs of top level 
         targets to the local machine. Both options can significantly reduce build 
         times if network bandwidth is a bottleneck.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -2922,7 +2922,7 @@ object BazelFlags {
         {size_bytes} that expand to the hash of the object and the size in bytes, 
         respectively. These symbolic links may, for example, point to a FUSE file 
         system that loads objects from the CAS on demand.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -2935,7 +2935,7 @@ object BazelFlags {
         Only downloads remote outputs of top level targets to the local machine. 
         This flag is an alias for --remote_download_outputs=toplevel.
           Expands to: --remote_download_outputs=toplevel
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment with an optional value part
   // may be used multiple times
@@ -2949,7 +2949,7 @@ object BazelFlags {
         repository rules. Note that repository rules see the full environment 
         anyway, but in this way configuration information can be passed to 
         repositories through options without invalidating the action graph.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a prefix in front of command
   // default: see description
@@ -2965,7 +2965,7 @@ object BazelFlags {
         also be a label to an executable target. Some examples are: 'valgrind', 
         'strace', 'strace -c', 'valgrind --quiet --num-callers=20', '//package:
         target',  '//package:target --options'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -2976,7 +2976,7 @@ object BazelFlags {
       description = """
         If true, native libraries that contain identical functionality will be 
         shared among different targets
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -2987,7 +2987,7 @@ object BazelFlags {
       description = """
         Stamp binaries with the date, username, hostname, workspace information, 
         etc.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // always, sometimes or never
   // default: "sometimes"
@@ -3000,7 +3000,7 @@ object BazelFlags {
         Specifies whether to strip binaries and shared libraries  (using "-Wl,--
         strip-debug").  The default value of 'sometimes' means strip iff --
         compilation_mode=fastbuild.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -3012,7 +3012,7 @@ object BazelFlags {
       description = """
         Additional options to pass to strip when generating a '<name>.stripped' 
         binary.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -3023,7 +3023,7 @@ object BazelFlags {
       name = "swiftcopt",
       description = """
         Additional options to pass to Swift compilation.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -3039,7 +3039,7 @@ object BazelFlags {
         created and no warning is emitted. Warning: the special functionality for 
         '/' will be deprecated soon; use --experimental_convenience_symlinks=ignore 
         instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -3051,7 +3051,7 @@ object BazelFlags {
       description = """
         Comma-separated list of architectures for which to build Apple tvOS 
         binaries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -3063,7 +3063,7 @@ object BazelFlags {
       description = """
         Minimum compatible tvOS version for target simulators and devices. If 
         unspecified, uses 'tvos_sdk_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -3075,7 +3075,7 @@ object BazelFlags {
       description = """
         Comma-separated list of architectures for which to build Apple visionOS 
         binaries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -3087,7 +3087,7 @@ object BazelFlags {
       description = """
         Comma-separated list of architectures for which to build Apple watchOS 
         binaries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -3099,7 +3099,7 @@ object BazelFlags {
       description = """
         Minimum compatible watchOS version for target simulators and devices. If 
         unspecified, uses 'watchos_sdk_version'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -3113,7 +3113,7 @@ object BazelFlags {
         name of default cross binary profile. When the option is used together with 
         --fdo_instrument/--fdo_optimize/--fdo_profile, those options will always 
         prevail as if xbinary_fdo is never specified.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that affect how strictly Bazel enforces valid build inputs (rule definitions,  flag combinations, etc.):
@@ -3127,7 +3127,7 @@ object BazelFlags {
       description = """
         Declare the environment_group to use for automatically mapping cpu values 
         to target_environment values.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3137,7 +3137,7 @@ object BazelFlags {
       name = "check_bzl_visibility",
       description = """
         If disabled, .bzl load visibility errors are demoted to warnings.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3149,7 +3149,7 @@ object BazelFlags {
         Check that licensing constraints imposed by dependent packages do not 
         conflict with distribution modes of the targets being built. By default, 
         licenses are not checked.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3160,7 +3160,7 @@ object BazelFlags {
       description = """
         If disabled, visibility errors in target dependencies are demoted to 
         warnings.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3170,7 +3170,7 @@ object BazelFlags {
       name = "desugar_for_android",
       description = """
         Whether to desugar Java 8 bytecode before dexing.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3180,7 +3180,7 @@ object BazelFlags {
       name = "desugar_java8_libs",
       description = """
         Whether to include supported Java 8 libraries in apps for legacy devices.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3191,7 +3191,7 @@ object BazelFlags {
       description = """
         Checks the environments each target is compatible with and reports errors 
         if any target has dependencies that don't support the same environments
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3201,7 +3201,7 @@ object BazelFlags {
       name = "experimental_check_desugar_deps",
       description = """
         Whether to double-check correct desugaring at Android binary level.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3213,7 +3213,7 @@ object BazelFlags {
         If enabled, Bazel will pass the --privileged flag to 'docker run' when 
         running actions. This might be required by your build, but it might also 
         result in reduced hermeticity.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, warning or error
   // default: "OFF"
@@ -3225,7 +3225,7 @@ object BazelFlags {
       description = """
         When enabled, check whether the dependencies of an aar_import are complete. 
         This enforcement can break the build, or can just result in warnings.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, warning or error
   // default: "OFF"
@@ -3238,7 +3238,7 @@ object BazelFlags {
         When enabled, enforce that a java_binary rule can't contain more than one 
         version of the same class file on the classpath. This enforcement can break 
         the build, or can just result in warnings.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3248,7 +3248,7 @@ object BazelFlags {
       name = "experimental_sandboxfs_map_symlink_targets",
       description = """
         No-op
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, warn, error, strict or default
   // default: "default"
@@ -3260,7 +3260,7 @@ object BazelFlags {
       description = """
         If true, checks that a Java target explicitly declares all directly used 
         targets as dependencies.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3272,7 +3272,7 @@ object BazelFlags {
         If enabled, check testonly for prerequisite targets that are output files 
         by looking up the testonly of the generating rule. This matches visibility 
         checking.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3282,7 +3282,7 @@ object BazelFlags {
       name = "incompatible_check_visibility_for_toolchains",
       description = """
         If enabled, visibility checking also applies to toolchain implementations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3294,7 +3294,7 @@ object BazelFlags {
         If enabled, direct usage of the native Android rules is disabled. Please 
         use the Starlark Android rules from https://github.
         com/bazelbuild/rules_android
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3304,7 +3304,7 @@ object BazelFlags {
       name = "incompatible_disable_native_apple_binary_rule",
       description = """
         No-op. Kept here for backwards compatibility.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3317,7 +3317,7 @@ object BazelFlags {
         local strategy. This flag will eventually default to false and then become 
         a no-op. Use --strategy, --spawn_strategy, or --dynamic_local_strategy to 
         configure fallbacks instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3329,7 +3329,7 @@ object BazelFlags {
         If true, using Python 2 settings will cause an error. This includes 
         python_version=PY2, srcs_version=PY2, and srcs_version=PY2ONLY. See https:
         //github.com/bazelbuild/bazel/issues/15684 for more information.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3340,7 +3340,7 @@ object BazelFlags {
       description = """
         If true, Bazel will also validate top level directory header inclusions 
         (see https://github.com/bazelbuild/bazel/issues/10047 for more information).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3353,7 +3353,7 @@ object BazelFlags {
         NONE value, enforce one version on java_test targets. This flag can be 
         disabled to improve incremental test performance at the expense of missing 
         potential one version violations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -3365,7 +3365,7 @@ object BazelFlags {
       description = """
         An allowlist (package_group target) to use when enforcing --
         incompatible_python_disallow_native_rules.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a single path or a 'source:target' pair
   // may be used multiple times
@@ -3376,7 +3376,7 @@ object BazelFlags {
       name = "sandbox_add_mount_pair",
       description = """
         Add additional path pair to mount in sandbox.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -3387,7 +3387,7 @@ object BazelFlags {
       name = "sandbox_block_path",
       description = """
         For sandboxed actions, disallow access to this path.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3398,7 +3398,7 @@ object BazelFlags {
       description = """
         Allow network access by default for actions; this may not work with all 
         sandboxing implementations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3408,7 +3408,7 @@ object BazelFlags {
       name = "sandbox_fake_hostname",
       description = """
         Change the current hostname to 'localhost' for sandboxed actions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3418,7 +3418,7 @@ object BazelFlags {
       name = "sandbox_fake_username",
       description = """
         Change the current username to 'nobody' for sandboxed actions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -3430,7 +3430,7 @@ object BazelFlags {
       description = """
         For sandboxed actions, make an existing directory writable in the sandbox 
         (if supported by the sandboxing implementation, ignored otherwise).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3441,7 +3441,7 @@ object BazelFlags {
       description = """
         If this option is enabled, filesets crossing package boundaries are 
         reported as errors.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, warn, error, strict or default
   // default: "error"
@@ -3453,7 +3453,7 @@ object BazelFlags {
       description = """
         Unless OFF, checks that a proto_library target explicitly declares all 
         directly used targets as dependencies.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, warn, error, strict or default
   // default: "off"
@@ -3465,7 +3465,7 @@ object BazelFlags {
       description = """
         Unless OFF, checks that a proto_library target explicitly declares all 
         targets used in 'import public' as exported.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3476,7 +3476,7 @@ object BazelFlags {
       description = """
         If true, headers found through system include paths (-isystem) are also 
         required to be declared.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // may be used multiple times
@@ -3489,7 +3489,7 @@ object BazelFlags {
         Declares this build's target environment. Must be a label reference to an 
         "environment" rule. If specified, all top-level targets must be compatible 
         with this environment.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that affect the signing outputs of a build:
@@ -3502,7 +3502,7 @@ object BazelFlags {
       name = "apk_signing_method",
       description = """
         Implementation to use to sign APKs
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3513,7 +3513,7 @@ object BazelFlags {
       description = """
         If set, and compilation mode is not 'opt', objc apps will include debug 
         entitlements when signing.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -3527,7 +3527,7 @@ object BazelFlags {
         provisioning profile. May be the certificate's keychain identity preference 
         or (substring) of the certificate's common name, as per codesign's man page 
         (SIGNING IDENTITIES).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: This option affects semantics of the Starlark language or the build API accessible to BUILD files, .bzl files, or WORKSPACE files.:
@@ -3540,7 +3540,7 @@ object BazelFlags {
       description = """
         If true, enables the Bzlmod dependency management system, taking precedence 
         over WORKSPACE. See https://bazel.build/docs/bzlmod for more information.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3551,7 +3551,7 @@ object BazelFlags {
       description = """
         If true, enables the legacy WORKSPACE system for external dependencies. See 
         https://bazel.build/external/overview for more information.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3563,7 +3563,7 @@ object BazelFlags {
         If set to true, ctx.actions.run() and ctx.actions.run_shell() accept a 
         resource_set parameter for local execution. Otherwise it will default to 
         250 MB for memory and 1 cpu.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3575,7 +3575,7 @@ object BazelFlags {
         If enabled, adds a `visibility()` function that .bzl files may call during 
         top-level evaluation to set their visibility for the purpose of load() 
         statements.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3586,7 +3586,7 @@ object BazelFlags {
       description = """
         If set to true, rule attributes and Starlark API methods needed for the 
         rule cc_shared_library will be available
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3598,7 +3598,7 @@ object BazelFlags {
         If set to true, the auto-generated //external package will not be available 
         anymore. Bazel will still be unable to parse the file 'external/BUILD', but 
         globs reaching into external/ from the unnamed package will work.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3609,7 +3609,7 @@ object BazelFlags {
       description = """
         If set to true, enables the APIs required to support the Android Starlark 
         migration.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3619,7 +3619,7 @@ object BazelFlags {
       name = "experimental_enable_scl_dialect",
       description = """
         If set to true, .scl files may be used in load() statements.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3630,7 +3630,7 @@ object BazelFlags {
       description = """
         If set to true, exposes a number of experimental pieces of Starlark build 
         API pertaining to Google legacy code.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3642,7 +3642,7 @@ object BazelFlags {
         If true, enables the <code>isolate</code> parameter in the <a href="https:
         //bazel.build/rules/lib/globals/module#use_extension"
         ><code>use_extension</code></a> function.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3652,7 +3652,7 @@ object BazelFlags {
       name = "experimental_java_library_export",
       description = """
         If enabled, experimental_java_library_export_do_not_use module is available.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3663,7 +3663,7 @@ object BazelFlags {
       description = """
         If set to true, enables a number of platform-related Starlark APIs useful 
         for debugging.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3673,7 +3673,7 @@ object BazelFlags {
       name = "experimental_repo_remote_exec",
       description = """
         If set to true, repository_rule gains some remote execution capabilities.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3687,7 +3687,7 @@ object BazelFlags {
         children of the ${"$"}output_base/execution_root directory. This has the side 
         effect of freeing up ${"$"}output_base/execution_root/__main__/external for the 
         real top-level 'external' directory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3699,7 +3699,7 @@ object BazelFlags {
         If set to true, tags will be propagated from a target to the actions' 
         execution requirements; otherwise tags are not propagated. See https:
         //github.com/bazelbuild/bazel/issues/8830 for details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3712,7 +3712,7 @@ object BazelFlags {
         Elements must be immutable, but historically the depset(direct=...) 
         constructor forgot to check. Use tuples instead of lists in depset 
         elements. See https://github.com/bazelbuild/bazel/issues/10313 for details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3726,7 +3726,7 @@ object BazelFlags {
         visibility attribute is //visibility:public. If this flag is true, 
         config_setting follows the same visibility logic as all other rules. See 
         https://github.com/bazelbuild/bazel/issues/12933.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3737,7 +3737,7 @@ object BazelFlags {
       description = """
         When true, Bazel no longer returns a list from java_info.java_output[0].
         source_jars but returns a depset instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3748,7 +3748,7 @@ object BazelFlags {
       description = """
         When true, Bazel no longer returns a list from linking_context.
         libraries_to_link but returns a depset instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3759,7 +3759,7 @@ object BazelFlags {
       description = """
         Disable objc_library's custom transition and inherit from the top level 
         target instead
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3770,7 +3770,7 @@ object BazelFlags {
       description = """
         If set to true, rule attributes cannot set 'cfg = "host"'. Rules should set 
         'cfg = "exec"' instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3784,7 +3784,7 @@ object BazelFlags {
         using `ctx.attr.dep.my_info` to access `my_info` from inside a rule 
         implementation function, use `ctx.attr.dep[MyInfo]`. See https://github.
         com/bazelbuild/bazel/issues/9014 for details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3795,7 +3795,7 @@ object BazelFlags {
       description = """
         If set to true, the default value of the `allow_empty` argument of glob() 
         is False.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3805,7 +3805,7 @@ object BazelFlags {
       name = "incompatible_disallow_legacy_py_provider",
       description = """
         No-op, will be removed soon.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3816,7 +3816,7 @@ object BazelFlags {
       description = """
         If true, disallow sdk_frameworks and weak_sdk_frameworks attributes in 
         objc_library andobjc_import.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3827,7 +3827,7 @@ object BazelFlags {
       description = """
         If set to true, rule implementation functions may not return a struct. They 
         must instead return a list of provider instances.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3838,7 +3838,7 @@ object BazelFlags {
       description = """
         If enabled, certain deprecated APIs (native.repository_name, Label.
         workspace_name, Label.relative) can be used.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3850,7 +3850,7 @@ object BazelFlags {
         If true, enforce config_setting visibility restrictions. If false, every 
         config_setting is visible to every target. See https://github.
         com/bazelbuild/bazel/issues/12932.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3861,7 +3861,7 @@ object BazelFlags {
       description = """
         If set to true, native.existing_rule and native.existing_rules return 
         lightweight immutable view objects instead of mutable dicts.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3871,7 +3871,7 @@ object BazelFlags {
       name = "incompatible_fail_on_unknown_attributes",
       description = """
         If enabled, targets that have unknown attributes set to None fail.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3885,7 +3885,7 @@ object BazelFlags {
         packages in any repository. You can use the special value "public" in place 
         of "//..." to obtain the old behavior. This flag requires that --
         incompatible_package_group_has_public_syntax also be enabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3896,7 +3896,7 @@ object BazelFlags {
       description = """
         If set to true, the output_jar, and host_javabase parameters in 
         pack_sources and host_javabase in compile will all be removed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3910,7 +3910,7 @@ object BazelFlags {
         use an environment obtained from the default shell environment by 
         overriding with the values passed in to 'env'. If disabled, the value of 
         'env' is completely ignored in this case.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3921,7 +3921,7 @@ object BazelFlags {
       description = """
         If set to true, the API to create actions is only available on `ctx.
         actions`, not on `ctx`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3931,7 +3931,7 @@ object BazelFlags {
       name = "incompatible_no_attr_license",
       description = """
         If set to true, disables the function `attr.license`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3943,7 +3943,7 @@ object BazelFlags {
         If set, (used) source files are are package private unless exported 
         explicitly. See https://github.
         com/bazelbuild/proposals/blob/master/designs/2019-10-24-file-visibility.md
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3954,7 +3954,7 @@ object BazelFlags {
       description = """
         If set to true, disables the `outputs` parameter of the `rule()` Starlark 
         function.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3965,7 +3965,7 @@ object BazelFlags {
       description = """
         If true, make the default value true for alwayslink attributes in 
         objc_library and objc_import.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3975,7 +3975,7 @@ object BazelFlags {
       name = "incompatible_objc_provider_remove_linking_info",
       description = """
         If set to true, the ObjcProvider's APIs for linking info will be removed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -3986,7 +3986,7 @@ object BazelFlags {
       description = """
         In package_group's `packages` attribute, allows writing "public" or 
         "private" to refer to all packages or no packages respectively.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -3999,7 +3999,7 @@ object BazelFlags {
         rule_python rules should be used. See https://github.
         com/bazelbuild/bazel/issues/17773 for more information and migration 
         instructions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4011,7 +4011,7 @@ object BazelFlags {
         If set to true, rule create_linking_context will require linker_inputs 
         instead of libraries_to_link. The old getters of linking_context will also 
         be disabled and just linker_inputs will be available.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4022,7 +4022,7 @@ object BazelFlags {
       description = """
         If set to true, the command parameter of actions.run_shell will only accept 
         string
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4034,7 +4034,7 @@ object BazelFlags {
         If enabled, certain language-specific modules (such as `cc_common`) are 
         unavailable in user .bzl files and may only be called from their respective 
         rules repositories.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4046,7 +4046,7 @@ object BazelFlags {
         Disables the to_json and to_proto methods of struct, which pollute the 
         struct field namespace. Instead, use json.encode or json.encode_indent for 
         JSON, or proto.encode_text for textproto.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4058,7 +4058,7 @@ object BazelFlags {
         If set to true, the top level aspect will honor its required providers and 
         only run on top level targets whose rules' advertised providers satisfy the 
         required providers of the aspect.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4071,7 +4071,7 @@ object BazelFlags {
         of //foo:bar. This only affects the behavior of str(), the % operator, and 
         so on; the behavior of repr() is unchanged. See https://github.
         com/bazelbuild/bazel/issues/15916 for more information.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4083,7 +4083,7 @@ object BazelFlags {
         When true, Bazel will no longer allow using cc_configure from @bazel_tools. 
         Please see https://github.com/bazelbuild/bazel/issues/10134 for details and 
         migration instructions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4096,7 +4096,7 @@ object BazelFlags {
         instead of the tilde (~). This is to address severe performance issues on 
         Windows; see https://github.com/bazelbuild/bazel/issues/22865 for more 
         information.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4107,7 +4107,7 @@ object BazelFlags {
       description = """
         If set to true, the visibility of private rule attributes is checked with 
         respect to the rule definition, falling back to rule usage if not visible.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a long integer
   // default: "0"
@@ -4119,7 +4119,7 @@ object BazelFlags {
       description = """
         The maximum number of Starlark computation steps that may be executed by a 
         BUILD file (zero means no limit).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "3500"
@@ -4131,7 +4131,7 @@ object BazelFlags {
       description = """
         The maximum depth of the graph internal to a depset (also known as 
         NestedSet), above which the depset() constructor will fail.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that govern the behavior of the test environment or test runner:
@@ -4145,7 +4145,7 @@ object BazelFlags {
         If true, an analysis failure of a rule target results in the target's 
         propagation of an instance of AnalysisFailureInfo containing the error 
         description, instead of resulting in a build failure.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "2000"
@@ -4158,7 +4158,7 @@ object BazelFlags {
         Sets the maximum number of transitive dependencies through a rule attribute 
         with a for_analysis_testing configuration transition. Exceeding this limit 
         will result in a rule error.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4169,7 +4169,7 @@ object BazelFlags {
       description = """
         If true dex2oat action failures will cause the build to break instead of 
         executing dex2oat during test runtime.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4183,7 +4183,7 @@ object BazelFlags {
         be built or executed, an error is reported and the testing fails.  This 
         option implies --check_up_to_date behavior.
           Using this option will also add: --check_up_to_date
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a resource name followed by equal and 1 float or 4 float, e.g memory=10,30,60,100
   // may be used multiple times
@@ -4202,7 +4202,7 @@ object BazelFlags {
         memory=HOST_RAM*.1,HOST_RAM*.2,HOST_RAM*.3,HOST_RAM*.4). The default test 
         resources specified by this flag are overridden by explicit resources 
         specified in tags.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4212,7 +4212,7 @@ object BazelFlags {
       name = "experimental_android_use_parallel_dex2oat",
       description = """
         Use dex2oat in parallel to possibly speed up android_test.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a positive integer, the string "default", or test_regex@attempts. This flag may be passed more than once
   // may be used multiple times
@@ -4236,7 +4236,7 @@ object BazelFlags {
         three times. This option can be passed multiple times. The most recently 
         passed argument that matches takes precedence. If nothing matches, behavior 
         is as if 'default' above.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4246,7 +4246,7 @@ object BazelFlags {
       name = "ios_memleaks",
       description = """
         Enable checking for memory leaks in ios_test targets.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -4259,7 +4259,7 @@ object BazelFlags {
         The device to simulate when running an iOS application in the simulator, e.
         g. 'iPhone 6'. You can get a list of devices by running 'xcrun simctl list 
         devicetypes' on the machine the simulator will be run on.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a dotted version (for example '2.3' or '3.3alpha2.4')
   // default: see description
@@ -4271,7 +4271,7 @@ object BazelFlags {
       description = """
         The version of iOS to run on the simulator when running or testing. This is 
         ignored for ios_test rules if a target device is specified in the rule.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // default: "auto"
@@ -4286,7 +4286,7 @@ object BazelFlags {
         operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5". 0 means local 
         resources will limit the number of local test jobs to run concurrently 
         instead. Setting this greater than the value for --jobs is ineffectual.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a positive integer or test_regex@runs. This flag may be passed more than once
   // may be used multiple times
@@ -4306,7 +4306,7 @@ object BazelFlags {
         runs all tests in //foo/ except those under foo/bar three times. This 
         option can be passed multiple times. The most recently passed argument that 
         matches takes precedence. If nothing matches, the test is only run once.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment with an optional value part
   // may be used multiple times
@@ -4321,7 +4321,7 @@ object BazelFlags {
         case its value will be read from the Bazel client environment, or by the 
         name=value pair. This option can be used multiple times to specify several 
         variables. Used only by the 'bazel test' command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4332,7 +4332,7 @@ object BazelFlags {
       description = """
         When disabled, any non-passing test will cause the entire build to stop. By 
         default all tests are run, even if some do not pass.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -4343,7 +4343,7 @@ object BazelFlags {
       name = "test_strategy",
       description = """
         Specifies which strategy to use when running tests.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a single integer or comma-separated list of 4 integers
   // default: "-1"
@@ -4359,7 +4359,7 @@ object BazelFlags {
         override the timeouts for short, moderate, long and eternal (in that 
         order). In either form, a value of -1 tells blaze to use its default 
         timeouts for that category.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -4370,7 +4370,7 @@ object BazelFlags {
       name = "test_tmpdir",
       description = """
         Specifies the base temporary directory for 'bazel test' to use.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4380,7 +4380,7 @@ object BazelFlags {
       name = "zip_undeclared_test_outputs",
       description = """
         If true, undeclared test outputs will be archived in a zip file.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options relating to query output and semantics:
@@ -4392,7 +4392,7 @@ object BazelFlags {
       name = "experimental_parallel_aquery_output",
       description = """
         No-op.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options relating to Bzlmod output and semantics:
@@ -4411,7 +4411,7 @@ object BazelFlags {
         will cause the resolution to fail. You can also define allowed yanked 
         version with the `BZLMOD_ALLOW_YANKED_VERSIONS` environment variable. You 
         can disable this check by using the keyword 'all' (not recommended).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // error, warning or off
   // default: "error"
@@ -4424,7 +4424,7 @@ object BazelFlags {
         Check bazel version compatibility of Bazel modules. Valid values are 
         `error` to escalate it to a resolution failure, `off` to disable the check, 
         or `warning` to print a warning when mismatch detected.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, warning or error
   // default: "warning"
@@ -4438,7 +4438,7 @@ object BazelFlags {
         are the same versions you get in the resolved dependency graph. Valid 
         values are `off` to disable the check, `warning` to print a warning when 
         mismatch detected or `error` to escalate it to a resolution failure.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4451,7 +4451,7 @@ object BazelFlags {
         `dev_dependency` in the MODULE.bazel of the root module. Note that, those 
         dev dependencies are always ignored in the MODULE.bazel if it's not the 
         root module regardless of the value of this flag.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, update, refresh or error
   // default: "update"
@@ -4467,7 +4467,7 @@ object BazelFlags {
         missing modules) from remote registries from time to time, `error` to use 
         the lockfile but throw an error if it's not up-to-date, or `off` to neither 
         read from or write to the lockfile.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an equals-separated mapping of module name to path
   // may be used multiple times
@@ -4483,7 +4483,7 @@ object BazelFlags {
         If the given path starts with '%workspace%, it is relative to the workspace 
         root, which is the output of `bazel info workspace`. If the given path is 
         empty, then remove any previous overrides.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -4497,7 +4497,7 @@ object BazelFlags {
         order is important: modules will be looked up in earlier registries first, 
         and only fall back to later registries when they're missing from the 
         earlier ones.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -4511,7 +4511,7 @@ object BazelFlags {
         vendor mode, whether for the purpose of fetching them into it or using them 
         while building. The path can be specified as either an absolute path or a 
         path relative to the workspace directory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that trigger optimizations of the build time:
@@ -4528,7 +4528,7 @@ object BazelFlags {
         they are needed. Setting this to 0 ensures correctness because not all file 
         changes can be noted from file metadata. When not 0, the number indicates 
         the size of the cache as the number of file digests to be cached.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of signal numbers
   // default: see description
@@ -4542,7 +4542,7 @@ object BazelFlags {
         gets killed with any of these signals, the remote branch will be allowed to 
         finish instead. For persistent workers, this only affects signals that kill 
         the worker process.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4553,7 +4553,7 @@ object BazelFlags {
       description = """
         Filter the ProGuard ProgramJar to remove any classes also present in the 
         LibraryJar.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4564,7 +4564,7 @@ object BazelFlags {
       description = """
         If enabled, C++ .d files will be passed through in memory directly from the 
         remote build nodes instead of being written to disk.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4576,7 +4576,7 @@ object BazelFlags {
         If enabled, the dependency (.jdeps) files generated from Java compilations 
         will be passed through in memory directly from the remote build nodes 
         instead of being written to disk.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4586,7 +4586,7 @@ object BazelFlags {
       name = "experimental_objc_include_scanning",
       description = """
         Whether to perform include scanning for objective C/C++.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4599,7 +4599,7 @@ object BazelFlags {
         configuration for rules marked testonly=1. This is meant to reduce action 
         conflict issues when non-test rules depend on cc_test rules. No effect if --
         trim_test_configuration is false.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4609,7 +4609,7 @@ object BazelFlags {
       name = "experimental_starlark_cc_import",
       description = """
         If enabled, the Starlark version of cc_import can be used.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4625,7 +4625,7 @@ object BazelFlags {
         semantics. In particular, it does not understand dynamic #include 
         directives and ignores preprocessor conditional logic. Use at your own 
         risk. Any issues relating to this flag that are filed will be closed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma separated pairs of <period>:<count>
   // default: "1s:2,20s:3,1m:5"
@@ -4641,7 +4641,7 @@ object BazelFlags {
         percent of tenured space (old gen heap) remains occupied after <count> 
         consecutive full GCs within <period>, an OOM is triggered. Multiple limits 
         can be specified separated by commas.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4654,7 +4654,7 @@ object BazelFlags {
         related File and DirectoryListing node is done to save memory. We expect 
         that it is less likely that these nodes will be needed again. If so, the 
         program will re-evaluate them.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4667,7 +4667,7 @@ object BazelFlags {
         and also doesn't selectively decide which flags go to the param file and 
         which don't.  See https://github.com/bazelbuild/bazel/issues/7670 for 
         details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4677,7 +4677,7 @@ object BazelFlags {
       name = "incremental_dexing",
       description = """
         Does most of the work for dexing separately for each Jar file.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4689,7 +4689,7 @@ object BazelFlags {
         If false, Blaze will discard the inmemory state from this build when the 
         build finishes. Subsequent builds will not have any incrementality with 
         respect to this one.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, or "HOST_CPUS", optionally followed by [-|*]<float>.
   // default: "HOST_CPUS"
@@ -4704,7 +4704,7 @@ object BazelFlags {
         optionally followed by [-|*]<float> (eg. HOST_CPUS*.5 to use half the 
         available CPU cores). By default, ("HOST_CPUS"), Bazel will query system 
         configuration to estimate the number of CPU cores available.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a named float, 'name=value'
   // may be used multiple times
@@ -4721,7 +4721,7 @@ object BazelFlags {
         declare the amount of extra resources they need by using a tag of the 
         "resources:<resoucename>:<amount>" format. Available CPU, RAM and resources 
         cannot be set with this flag.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer number of MBs, or "HOST_RAM", optionally followed by [-|*]<float>.
   // default: "HOST_RAM*.67"
@@ -4737,7 +4737,7 @@ object BazelFlags {
         half the available RAM). By default, ("HOST_RAM*.67"), Bazel will query 
         system configuration to estimate the amount of RAM available and will use 
         67% of it.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a named double, 'name=value', where value is an integer, or a keyword ("auto", "HOST_CPUS", "HOST_RAM"), optionally followed by an operation ([-|*]<float>) eg. "auto", "HOST_CPUS*.5"
   // may be used multiple times
@@ -4755,7 +4755,7 @@ object BazelFlags {
         required. Tests can declare the amount of resources they need by using a 
         tag of the "resources:<resource name>:<amount>" format. Overrides resources 
         specified by --local_{cpu|ram|extra}_resources.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4766,7 +4766,7 @@ object BazelFlags {
       description = """
         If set, .d files emitted by clang will be used to prune the set of inputs 
         passed into objc compiles.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4777,7 +4777,7 @@ object BazelFlags {
       description = """
         When building a target //a:a, process headers in all targets that //a:a 
         depends on (if header processing is enabled for the toolchain).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, >= 0
   // default: "2147483647"
@@ -4795,7 +4795,7 @@ object BazelFlags {
         means that full GC events will never trigger drops. If the limit is 
         reached, Skyframe state will no longer be dropped when a full GC event 
         occurs and that retained heap percentage threshold is exceeded.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer, >= 0
   // default: "2147483647"
@@ -4813,7 +4813,7 @@ object BazelFlags {
         means that minor GC events will never trigger drops. If the limit is 
         reached, Skyframe state will no longer be dropped when a minor GC event 
         occurs and that retained heap percentage threshold is exceeded.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "85"
@@ -4829,7 +4829,7 @@ object BazelFlags {
         may let you mitigate wall time impact of GC thrashing, when the GC 
         thrashing is (i) caused by the memory usage of this temporary state and 
         (ii) more costly than reconstituting the state when it is needed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4842,7 +4842,7 @@ object BazelFlags {
         evaluation on incremental builds in order to save memory on this build. 
         Subsequent builds will not have any incrementality with respect to this 
         one. Usually you will want to specify --batch when setting this to false.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4855,7 +4855,7 @@ object BazelFlags {
         the build. When this flag is active, tests cannot be built as dependencies 
         of non-test rules, but changes to test-related options will not cause non-
         test rules to be re-analyzed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options that affect the verbosity, format or location of logging:
@@ -4867,7 +4867,7 @@ object BazelFlags {
       name = "announce_rc",
       description = """
         Whether to announce rc options.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4879,7 +4879,7 @@ object BazelFlags {
         When printing the location part of messages, attempt to use a path relative 
         to the workspace directory or one of the directories specified by --
         package_path.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -4893,7 +4893,7 @@ object BazelFlags {
         [SCHEME://]HOST[:PORT]. The default is to disable BES uploads. Supported 
         schemes are grpc and grpcs (grpc with TLS enabled). If no scheme is 
         provided, Bazel assumes grpcs.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -4906,7 +4906,7 @@ object BazelFlags {
         PublishBuildToolEventStreamRequest which tells BES to check whether it 
         previously received InvocationAttemptStarted and BuildEnqueued events 
         matching the current tool event.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -4920,7 +4920,7 @@ object BazelFlags {
         Multiple headers can be passed by specifying the flag multiple times. 
         Multiple values for the same name will be converted to a comma-separated 
         list.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -4932,7 +4932,7 @@ object BazelFlags {
       description = """
         Specifies the instance name under which the BES will persist uploaded BEP. 
         Defaults to null.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -4945,7 +4945,7 @@ object BazelFlags {
         Specifies a list of notification keywords to be added the default set of 
         keywords published to BES ("command_name=<command_name> ", 
         "protocol_name=BEP"). Defaults to none.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -4955,7 +4955,7 @@ object BazelFlags {
       name = "bes_lifecycle_events",
       description = """
         Specifies whether to publish BES lifecycle events. (defaults to 'true').
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "10m"
@@ -4968,7 +4968,7 @@ object BazelFlags {
         Specifies how long bazel should wait for the BES/BEP upload to complete 
         while OOMing. This flag ensures termination when the JVM is severely GC 
         thrashing and cannot make progress on any user thread.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "10240"
@@ -4982,7 +4982,7 @@ object BazelFlags {
         before it is reported as a progress event. Individual writes are still 
         reported in a single event, even if larger than the specified value up to --
         bes_outerr_chunk_size.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "1048576"
@@ -4994,7 +4994,7 @@ object BazelFlags {
       description = """
         Specifies the maximal size of stdout or stderr to be sent to BEP in a 
         single message.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -5006,7 +5006,7 @@ object BazelFlags {
       description = """
         Connect to the Build Event Service through a proxy. Currently this flag can 
         only be used to configure a Unix domain socket (unix:/path/to/socket).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5019,7 +5019,7 @@ object BazelFlags {
         Specifies the base URL where a user can view the information streamed to 
         the BES backend. Bazel will output the URL appended by the invocation id to 
         the terminal.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -5035,7 +5035,7 @@ object BazelFlags {
         bes_lifecycle_events=false and include keywords when calling 
         PublishLifecycleEvent. Build service operators using this flag should 
         prevent users from overriding the flag value.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "0s"
@@ -5050,7 +5050,7 @@ object BazelFlags {
         number followed by a unit: Days (d), hours (h), minutes (m), seconds (s), 
         and milliseconds (ms). The default value is '0' which means that there is 
         no timeout.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // wait_for_upload_complete, nowait_for_upload_complete or fully_async
   // default: "wait_for_upload_complete"
@@ -5064,7 +5064,7 @@ object BazelFlags {
         completion or should end the invocation immediately and finish the upload 
         in the background. Either 'wait_for_upload_complete' (default), 
         'nowait_for_upload_complete', or 'fully_async'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5077,7 +5077,7 @@ object BazelFlags {
         If non-empty, write a varint delimited binary representation of 
         representation of the build event protocol to that file. This option 
         implies --bes_upload_mode=wait_for_upload_complete.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5089,7 +5089,7 @@ object BazelFlags {
         Convert paths in the binary file representation of the build event protocol 
         to more globally valid URIs whenever possible; if disabled, the file:// uri 
         scheme will always be used
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // wait_for_upload_complete, nowait_for_upload_complete or fully_async
   // default: "wait_for_upload_complete"
@@ -5104,7 +5104,7 @@ object BazelFlags {
         invocation immediately and finish the upload in the background. Either 
         'wait_for_upload_complete' (default), 'nowait_for_upload_complete', or 
         'fully_async'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5116,7 +5116,7 @@ object BazelFlags {
       description = """
         If non-empty, write a JSON serialisation of the build event protocol to 
         that file. This option implies --bes_upload_mode=wait_for_upload_complete.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5128,7 +5128,7 @@ object BazelFlags {
         Convert paths in the json file representation of the build event protocol 
         to more globally valid URIs whenever possible; if disabled, the file:// uri 
         scheme will always be used
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // wait_for_upload_complete, nowait_for_upload_complete or fully_async
   // default: "wait_for_upload_complete"
@@ -5143,7 +5143,7 @@ object BazelFlags {
         invocation immediately and finish the upload in the background. Either 
         'wait_for_upload_complete' (default), 'nowait_for_upload_complete', or 
         'fully_async'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "-1"
@@ -5159,7 +5159,7 @@ object BazelFlags {
         although it does not directly control event size. The total event size is a 
         function of the structure of the set as well as the file and uri lengths, 
         which may in turn depend on the hash function.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5169,7 +5169,7 @@ object BazelFlags {
       name = "build_event_publish_all_actions",
       description = """
         Whether all actions should be published.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5181,7 +5181,7 @@ object BazelFlags {
       description = """
         If non-empty, write a textual representation of the build event protocol to 
         that file
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5193,7 +5193,7 @@ object BazelFlags {
         Convert paths in the text file representation of the build event protocol 
         to more globally valid URIs whenever possible; if disabled, the file:// uri 
         scheme will always be used
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // wait_for_upload_complete, nowait_for_upload_complete or fully_async
   // default: "wait_for_upload_complete"
@@ -5208,7 +5208,7 @@ object BazelFlags {
         invocation immediately and finish the upload in the background. Either 
         'wait_for_upload_complete' (default), 'nowait_for_upload_complete', or 
         'fully_async'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5218,7 +5218,7 @@ object BazelFlags {
       name = "debug_spawn_scheduler",
       description = """
     
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5228,7 +5228,7 @@ object BazelFlags {
       name = "experimental_announce_profile_path",
       description = """
         If enabled, adds the JSON profile path to the log.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5238,7 +5238,7 @@ object BazelFlags {
       name = "experimental_bep_target_summary",
       description = """
         Whether to publish TargetSummary events.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5248,7 +5248,7 @@ object BazelFlags {
       name = "experimental_build_event_expand_filesets",
       description = """
         If true, expand Filesets in the BEP when presenting output files.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5259,7 +5259,7 @@ object BazelFlags {
       description = """
         If true, fully resolve relative Fileset symlinks in the BEP when presenting 
         output files. Requires --experimental_build_event_expand_filesets.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "4"
@@ -5270,7 +5270,7 @@ object BazelFlags {
       name = "experimental_build_event_upload_max_retries",
       description = """
         The maximum number of times Bazel should retry uploading a build event.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "1s"
@@ -5282,7 +5282,7 @@ object BazelFlags {
       description = """
         Initial, minimum delay for exponential backoff retries when BEP upload 
         fails. (exponent: 1.6)
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -5293,7 +5293,7 @@ object BazelFlags {
       name = "experimental_build_event_upload_strategy",
       description = """
         Selects how to upload artifacts referenced in the build event protocol.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5303,7 +5303,7 @@ object BazelFlags {
       name = "experimental_collect_load_average_in_profiler",
       description = """
         If enabled, the profiler collects the system's overall load average.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5313,7 +5313,7 @@ object BazelFlags {
       name = "experimental_collect_local_sandbox_action_metrics",
       description = """
         Deprecated no-op.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5323,7 +5323,7 @@ object BazelFlags {
       name = "experimental_collect_pressure_stall_indicators",
       description = """
         If enabled, the profiler collects the Linux PSI data.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5334,7 +5334,7 @@ object BazelFlags {
       description = """
         If enabled, the profiler collects CPU and memory usage estimation for local 
         actions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5344,7 +5344,7 @@ object BazelFlags {
       name = "experimental_collect_system_network_usage",
       description = """
         If enabled, the profiler collects the system's network usage.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5354,7 +5354,7 @@ object BazelFlags {
       name = "experimental_collect_worker_data_in_profiler",
       description = """
         If enabled, the profiler collects worker's aggregated resource data.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // cpu, wall, alloc or lock
   // default: see description
@@ -5370,7 +5370,7 @@ object BazelFlags {
         event type under the output base directory. The syntax and semantics of 
         this flag might change in the future to support additional profile types or 
         output formats; use at your own risk.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5381,7 +5381,7 @@ object BazelFlags {
       description = """
         If enabled, Bazel will print more verbose messages about the Docker sandbox 
         strategy.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5391,7 +5391,7 @@ object BazelFlags {
       name = "experimental_materialize_param_files_directly",
       description = """
         If materializing param files, do so with direct writes to disk.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // phase, action, action_check, action_lock, action_release, action_update, action_complete, bzlmod, info, create_package, remote_execution, local_execution, scanner, local_parse, upload_time, remote_process_time, remote_queue, remote_setup, fetch, local_process_time, vfs_stat, vfs_dir, vfs_readlink, vfs_md5, vfs_xattr, vfs_delete, vfs_open, vfs_read, vfs_write, vfs_glob, vfs_vmfs_stat, vfs_vmfs_dir, vfs_vmfs_read, wait, thread_name, thread_sort_index, skyframe_eval, skyfunction, critical_path, critical_path_component, handle_gc_notification, action_counts, action_cache_counts, local_cpu_usage, system_cpu_usage, cpu_usage_estimation, local_memory_usage, system_memory_usage, memory_usage_estimation, system_network_up_usage, system_network_down_usage, workers_memory_usage, system_load_average, starlark_parser, starlark_user_fn, starlark_builtin_fn, starlark_user_compiled_fn, starlark_repository_fn, action_fs_staging, remote_cache_check, remote_download, remote_network, filesystem_traversal, worker_execution, worker_setup, worker_borrow, worker_working, worker_copying_outputs, credential_helper, pressure_stall_io, pressure_stall_memory, conflict_check, dynamic_lock, repository_fetch, repository_vendor or unknown
   // may be used multiple times
@@ -5402,7 +5402,7 @@ object BazelFlags {
       name = "experimental_profile_additional_tasks",
       description = """
         Specifies additional profile tasks to be included in the profile.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5413,7 +5413,7 @@ object BazelFlags {
       description = """
         Includes the extra "out" attribute in action events that contains the exec 
         path to the action's primary output.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5423,7 +5423,7 @@ object BazelFlags {
       name = "experimental_profile_include_target_label",
       description = """
         Includes target label in action events' JSON profile data.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5435,7 +5435,7 @@ object BazelFlags {
         By default the number of action types is limited to the 20 mnemonics with 
         the largest number of executed actions. Setting this option will write 
         statistics for all mnemonics.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5447,7 +5447,7 @@ object BazelFlags {
       description = """
         If non-empty, write a Starlark value with the resolved information of all 
         Starlark repository rules that were executed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5459,7 +5459,7 @@ object BazelFlags {
         Whether to include the command-line residue in run build events which could 
         contain the residue. By default, the residue is not included in run command 
         build events that could contain the residue.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5470,7 +5470,7 @@ object BazelFlags {
       description = """
         Stream log file uploads directly to the remote storage rather than writing 
         them to disk.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -5482,7 +5482,7 @@ object BazelFlags {
       description = """
         Log certain Workspace Rules events into this file as delimited 
         WorkspaceEvent protos.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -5494,7 +5494,7 @@ object BazelFlags {
       description = """
         Causes the build system to explain each executed step of the build. The 
         explanation is written to the specified log file.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a tri-state (auto, yes, no)
   // default: "auto"
@@ -5507,7 +5507,7 @@ object BazelFlags {
         If enabled, Bazel profiles the build and writes a JSON-format profile into 
         a file in the output base. View profile by loading into chrome://tracing. 
         By default Bazel writes the profile for all build-like commands and query.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5521,7 +5521,7 @@ object BazelFlags {
         written to <output_base>/<invocation_id>.heapdump.hprof. This option 
         effectively replaces -XX:+HeapDumpOnOutOfMemoryError, which has no effect 
         for manual OOMs.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5532,7 +5532,7 @@ object BazelFlags {
       description = """
         Do not print a warning when sandboxed execution is not supported on this 
         system.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5544,7 +5544,7 @@ object BazelFlags {
         Use this to suppress generation of the legacy important_outputs field in 
         the TargetComplete event. important_outputs are required for Bazel to 
         ResultStore integration.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // 0 <= an integer <= 6
   // default: "3"
@@ -5555,7 +5555,7 @@ object BazelFlags {
       name = "logging",
       description = """
         The logging level.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5567,7 +5567,7 @@ object BazelFlags {
         Writes intermediate parameter files to output tree even when using remote 
         action execution. Useful when debugging actions. This is implied by --
         subcommands and --verbose_failures.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "3"
@@ -5580,7 +5580,7 @@ object BazelFlags {
         When discarding the analysis cache due to a change in the build options, 
         displays up to the given number of changed option names. If the number 
         given is -1, all changed options will be displayed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "-1"
@@ -5594,7 +5594,7 @@ object BazelFlags {
         is 'errors' or 'all'. Useful for avoiding overwhelming the output with 
         excessively noisy test output. The test header is included in the log size. 
         Negative values imply no limit. Output is all or nothing.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -5606,7 +5606,7 @@ object BazelFlags {
       description = """
         If set, write memory usage data to the specified file at phase ends and 
         stable heap to master log at end of build.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // integers, separated by a comma expected in pairs
   // default: "1,0"
@@ -5621,7 +5621,7 @@ object BazelFlags {
         integer is the number of GCs to perform. The second integer in each pair is 
         the number of seconds to wait between GCs. Ex: 2,4,4,0 would 2 GCs with a 
         4sec pause, followed by 4 GCs with zero second pause
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a valid Java regular expression
   // default: see description
@@ -5633,7 +5633,7 @@ object BazelFlags {
       description = """
         Only shows warnings and action outputs for rules with a name matching the 
         provided regular expression.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -5645,7 +5645,7 @@ object BazelFlags {
       description = """
         If set, profile Bazel and write data to the specified file. Use bazel 
         analyze-profile to analyze the profile.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer in 0-3600 range
   // default: "0"
@@ -5659,7 +5659,7 @@ object BazelFlags {
         default value 0 means the first report will be printed after 10 seconds, 
         then 30 seconds and after that progress is reported once every minute. When 
         --curses is enabled, progress is reported every second.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5672,7 +5672,7 @@ object BazelFlags {
         numerous events (such as statting the file). If this option is enabled, 
         profiler will record each event - resulting in more precise profiling data 
         but LARGE performance hit. Option only has effect if --profile used as well.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // failure, success or all
   // default: "failure"
@@ -5685,7 +5685,7 @@ object BazelFlags {
         Choose when to print remote execution messages. Valid values are `failure`, 
         to print only on failures, `success` to print only on successes and `all` 
         to print always.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5699,7 +5699,7 @@ object BazelFlags {
         and second, prints extra debugging information on execution. This can help 
         developers of Bazel or Starlark rules with debugging failures due to 
         missing input files, etc.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "1"
@@ -5719,7 +5719,7 @@ object BazelFlags {
         occur always. The default is one.
         If nothing was built for a target its results may be omitted to keep the 
         output under the threshold.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5730,7 +5730,7 @@ object BazelFlags {
       description = """
         Slims down the size of the JSON profile by merging events if the profile 
         gets  too large.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5742,7 +5742,7 @@ object BazelFlags {
       description = """
         Writes into the specified file a pprof profile of CPU usage by all Starlark 
         threads.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // true, pretty_print or false
   // default: "false"
@@ -5755,7 +5755,7 @@ object BazelFlags {
         Display the subcommands executed during a build. Related flags: --
         execution_log_json_file, --execution_log_binary_file (for logging 
         subcommands to a file in a tool-friendly format).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // summary, errors, all or streamed
   // default: "summary"
@@ -5770,7 +5770,7 @@ object BazelFlags {
         'all' to print logs for all tests and 'streamed' to output logs for all 
         tests in real time (this will force tests to be executed locally one at a 
         time regardless of --test_strategy value).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // short, terse, detailed, none or testcase
   // default: "short"
@@ -5786,7 +5786,7 @@ object BazelFlags {
         print detailed information about failed test cases, 'testcase' to print 
         summary in test case resolution, do not print detailed information about 
         failed test cases and 'none' to omit the summary.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5797,7 +5797,7 @@ object BazelFlags {
       name = "tool_tag",
       description = """
         A tool name to attribute this Bazel invocation to.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of regex expressions with prefix '-' specifying excluded paths
   // default: "-.*"
@@ -5812,7 +5812,7 @@ object BazelFlags {
         which to debug. Multiple regexes may be  separated by commas, and then each 
         regex is checked separately. Note: The output of this flag is very complex 
         and will likely only be useful to experts in toolchain resolution.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // Convert list of comma separated event kind to list of filters
   // may be used multiple times
@@ -5826,7 +5826,7 @@ object BazelFlags {
         events to the default ones using leading +/-, or override the default set 
         completely with direct assignment. The set of supported event kinds include 
         INFO, DEBUG, ERROR and more.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5837,7 +5837,7 @@ object BazelFlags {
       description = """
         Increases the verbosity of the explanations issued if --explain is enabled. 
         Has no effect if --explain is not enabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5847,7 +5847,7 @@ object BazelFlags {
       name = "verbose_failures",
       description = """
         If a command fails, print out the full command line.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Options specifying or altering a generic input to a Bazel command that does not fall into other categories.:
@@ -5865,7 +5865,7 @@ object BazelFlags {
         aspects list or required by an aspect in the list. This option can be used 
         multiple times. However, it is not allowed to assign values to the same 
         parameter more than once.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5876,7 +5876,7 @@ object BazelFlags {
       name = "experimental_resolved_file_instead_of_workspace",
       description = """
         If non-empty read the specified resolved file instead of the WORKSPACE file
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' flag alias
   // may be used multiple times
@@ -5888,7 +5888,7 @@ object BazelFlags {
       description = """
         Sets a shorthand name for a Starlark flag. It takes a single key-value pair 
         in the form "<key>=<value>" as an argument.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -5902,7 +5902,7 @@ object BazelFlags {
         when a py_binary or py_test target has legacy_create_init set to "auto" 
         (the default), it is treated as false if and only if this flag is set. See 
         https://github.com/bazelbuild/bazel/issues/10076.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5917,7 +5917,7 @@ object BazelFlags {
         `bazel-bin` convenience symlink will point to Python 3 targets rather than 
         Python 2. If you enable this option it is also recommended to enable `--
         incompatible_py3_is_default`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5930,7 +5930,7 @@ object BazelFlags {
         `python_version` (or `default_python_version`) attribute will default to 
         PY3 rather than to PY2. If you set this flag it is also recommended to set 
         `--incompatible_py2_outputs_are_suffixed`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -5942,7 +5942,7 @@ object BazelFlags {
         If set to true, executable native Python rules will use the Python runtime 
         specified by the Python toolchain, rather than the runtime given by legacy 
         flags like --python_top.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // PY2 or PY3
   // default: see description
@@ -5956,7 +5956,7 @@ object BazelFlags {
         overridden by `py_binary` and `py_test` targets (even if they don't 
         explicitly specify a version) so there is usually not much reason to supply 
         this flag.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -5969,7 +5969,7 @@ object BazelFlags {
         If set, build will read patterns from the file named here, rather than on 
         the command line. It is an error to specify a file here as well as command-
         line patterns.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Remote caching and execution options:
@@ -5984,7 +5984,7 @@ object BazelFlags {
         Specifies the strategy for the circuit breaker to use. Available strategies 
         are "failure". On invalid value for the option the behavior same as the 
         option is not set.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6001,7 +6001,7 @@ object BazelFlags {
         back-references starting from `${"$"}1`. It is possible for multiple `rewrite` 
         directives for the same URL to be give, and in this case multiple URLs will 
         be returned.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6013,7 +6013,7 @@ object BazelFlags {
         Turn this off to disable checking the ctime of input files of an action 
         before uploading it to a remote cache. There may be cases where the Linux 
         kernel delays writing of files, which could cause false positives.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6024,7 +6024,7 @@ object BazelFlags {
       description = """
         If true, remote cache I/O will happen in the background instead of taking 
         place as the part of a spawn.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "0"
@@ -6036,7 +6036,7 @@ object BazelFlags {
       description = """
         The minimum blob size required to compress/decompress with zstd. 
         Ineffectual unless --remote_cache_compression is set.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "0"
@@ -6054,7 +6054,7 @@ object BazelFlags {
         use this flag. Instead, set flag --
         incompatible_remote_use_new_exit_code_for_lost_inputs and check for the 
         exit code 39.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6067,7 +6067,7 @@ object BazelFlags {
         during the build by sending `FindMissingBlobs` calls periodically to remote 
         cache. The frequency is based on the value of `--
         experimental_remote_cache_ttl`.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "3h"
@@ -6083,7 +6083,7 @@ object BazelFlags {
         call GetActionResult in an incremental build. The value should be set 
         slightly less than the real TTL since there is a gap between when the 
         server returns the digests and when Bazel receives them.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -6094,7 +6094,7 @@ object BazelFlags {
       name = "experimental_remote_capture_corrupted_outputs",
       description = """
         A path to a directory where the corrupted outputs will be captured to.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6107,7 +6107,7 @@ object BazelFlags {
         and associated input mappings during calls to GetActionResult() and 
         Execute(). This reduces memory usage significantly, but does require Bazel 
         to recompute them upon remote cache misses and retries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6122,7 +6122,7 @@ object BazelFlags {
         UNIX sockets). If no schema is provided Bazel will default to grpcs. See: 
         https://github.com/bazelbuild/remote-
         apis/blob/master/build/bazel/remote/asset/v1/remote_asset.proto
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6132,7 +6132,7 @@ object BazelFlags {
       name = "experimental_remote_downloader_local_fallback",
       description = """
         Whether to fall back to the local downloader if remote downloader fails.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6142,7 +6142,7 @@ object BazelFlags {
       name = "experimental_remote_execution_keepalive",
       description = """
         Whether to use keepalive for remote execution calls.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer in 0-100 range
   // default: "10"
@@ -6155,7 +6155,7 @@ object BazelFlags {
         Sets the allowed number of failure rate in percentage for a specific time 
         window after which it stops calling to the remote cache/executor. By 
         default the value is 10. Setting this to 0 means no limitation.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "60s"
@@ -6170,7 +6170,7 @@ object BazelFlags {
         duration of the execution.Following units can be used: Days (d), hours (h), 
         minutes (m), seconds (s), and milliseconds (ms). If the unit is omitted, 
         the value is interpreted as seconds.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6181,7 +6181,7 @@ object BazelFlags {
       description = """
         If set to true, Bazel will mark inputs as tool inputs for the remote 
         executor. This can be used to implement remote persistent workers.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6193,7 +6193,7 @@ object BazelFlags {
         If set to true, Merkle tree calculations will be memoized to improve the 
         remote cache hit checking speed. The memory foot print of the cache is 
         controlled by --experimental_remote_merkle_tree_cache_size.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a long integer
   // default: "1000"
@@ -6208,7 +6208,7 @@ object BazelFlags {
         Java's handling of soft references, out-of-memory errors can occur if set 
         too high. If set to 0  the cache size is unlimited. Optimal value varies 
         depending on project's size. Default to 1000.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6222,7 +6222,7 @@ object BazelFlags {
         schemas are grpc, grpcs (grpc with TLS enabled) and unix (local UNIX 
         sockets). If no schema is provided Bazel will default to grpcs. Specify 
         grpc:// or unix: schema to disable TLS.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -6236,7 +6236,7 @@ object BazelFlags {
         experimental_remote_output_service are placed. The actual output directory 
         used by a build will be a descendant of this path and determined by the 
         output service.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6249,7 +6249,7 @@ object BazelFlags {
         or else fail the build. This is useful to troubleshoot non-determinism 
         issues as it allows checking whether actions that should be cached are 
         actually cached without spuriously injecting new results into the cache.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // Converts to a Scrubber
   // default: see description
@@ -6281,7 +6281,7 @@ object BazelFlags {
         --host_platform together with --experimental_platform_in_output_dir (to 
         normalize output prefixes) and --incompatible_strict_action_env (to 
         normalize environment variables).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, platform, virtual or auto
   // default: "auto"
@@ -6294,7 +6294,7 @@ object BazelFlags {
         The threading mode to use for repo fetching. If set to 'off', no worker 
         thread is used, and the repo fetching is subject to restarts. Otherwise, 
         uses a virtual worker thread.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6304,7 +6304,7 @@ object BazelFlags {
       name = "incompatible_remote_build_event_upload_respect_no_cache",
       description = """
         Deprecated. No-op. Use --remote_build_event_upload=minimal instead.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -6315,7 +6315,7 @@ object BazelFlags {
       description = """
         Whether to send all values of a multi-valued header to the remote 
         downloader instead of just the first.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6326,7 +6326,7 @@ object BazelFlags {
       description = """
         If set to true, output paths are relative to input root instead of working 
         directory.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -6336,7 +6336,7 @@ object BazelFlags {
       name = "incompatible_remote_results_ignore_disk",
       description = """
         No-op
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -6347,7 +6347,7 @@ object BazelFlags {
       description = """
         If set to true, Bazel will use new exit code 39 instead of 34 if remote 
         cache evicts blobs during the build.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -6357,7 +6357,7 @@ object BazelFlags {
       name = "remote_accept_cached",
       description = """
         Whether to accept remotely cached action results.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // all or minimal
   // default: "minimal"
@@ -6374,7 +6374,7 @@ object BazelFlags {
         BEP (e.g. test logs and timing profile). bytestream:// scheme is always 
         used for the uri of files even if they are missing from remote cache.
         Default to 'minimal'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6390,7 +6390,7 @@ object BazelFlags {
         remote_instance_name to no longer correspond to the canonical name of the 
         remote execution service. When not set, it will default to "${"$"}{hostname}
         /${"$"}{instance_name}".
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6404,7 +6404,7 @@ object BazelFlags {
         grpcs (grpc with TLS enabled) and unix (local UNIX sockets). If no schema 
         is provided Bazel will default to grpcs. Specify grpc://, http:// or unix: 
         schema to disable TLS. See https://bazel.build/remote/caching
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6415,7 +6415,7 @@ object BazelFlags {
       description = """
         If enabled, compress/decompress cache blobs with zstd when their size is at 
         least --experimental_remote_cache_compression_threshold.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -6429,7 +6429,7 @@ object BazelFlags {
         remote_cache_header=Name=Value. Multiple headers can be passed by 
         specifying the flag multiple times. Multiple values for the same name will 
         be converted to a comma-separated list.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -6441,7 +6441,7 @@ object BazelFlags {
       description = """
         Set the default exec properties to be used as the remote execution platform 
         if an execution platform does not already set exec_properties.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -6455,7 +6455,7 @@ object BazelFlags {
         if the execution platform does not already set remote_execution_properties. 
         This value will also be used if the host platform is selected as the 
         execution platform for remote execution.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a valid Java regular expression
   // may be used multiple times
@@ -6468,7 +6468,7 @@ object BazelFlags {
         Force remote build outputs whose path matches this pattern to be 
         downloaded, irrespective of --remote_download_outputs. Multiple patterns 
         may be specified by repeating this flag.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -6482,7 +6482,7 @@ object BazelFlags {
         remote_downloader_header=Name=Value. Multiple headers can be passed by 
         specifying the flag multiple times. Multiple values for the same name will 
         be converted to a comma-separated list.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -6496,7 +6496,7 @@ object BazelFlags {
         remote_exec_header=Name=Value. Multiple headers can be passed by specifying 
         the flag multiple times. Multiple values for the same name will be 
         converted to a comma-separated list.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "0"
@@ -6508,7 +6508,7 @@ object BazelFlags {
       description = """
         The relative priority of actions to be executed remotely. The semantics of 
         the particular priority values are server-dependent.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6522,7 +6522,7 @@ object BazelFlags {
         grpc, grpcs (grpc with TLS enabled) and unix (local UNIX sockets). If no 
         schema is provided Bazel will default to grpcs. Specify grpc:// or unix: 
         schema to disable TLS.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -6537,7 +6537,7 @@ object BazelFlags {
         logging.RemoteExecutionLog.LogEntry protobufs with each message prefixed by 
         a varint denoting the size of the following serialized protobuf message, as 
         performed by the method LogEntry.writeDelimitedTo(OutputStream).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -6551,7 +6551,7 @@ object BazelFlags {
         remote_header=Name=Value. Multiple headers can be passed by specifying the 
         flag multiple times. Multiple values for the same name will be converted to 
         a comma-separated list.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -6562,7 +6562,7 @@ object BazelFlags {
       name = "remote_instance_name",
       description = """
         Value to pass as instance_name in the remote execution API.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6573,7 +6573,7 @@ object BazelFlags {
       description = """
         Whether to fall back to standalone local execution strategy if remote 
         execution fails.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: "local"
@@ -6585,7 +6585,7 @@ object BazelFlags {
       description = """
         No-op, deprecated. See https://github.com/bazelbuild/bazel/issues/7480 for 
         details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "100"
@@ -6603,7 +6603,7 @@ object BazelFlags {
         For gRPC remote cache/executor, one gRPC channel could usually handle 100+ 
         concurrent requests, so Bazel could make around `--remote_max_connections * 
         100` concurrent requests.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -6615,7 +6615,7 @@ object BazelFlags {
       description = """
         Connect to the remote cache through a proxy. Currently this flag can only 
         be used to configure a Unix domain socket (unix:/path/to/socket).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "0"
@@ -6627,7 +6627,7 @@ object BazelFlags {
       description = """
         The relative priority of remote actions to be stored in remote cache. The 
         semantics of the particular priority values are server-dependent.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "5"
@@ -6639,7 +6639,7 @@ object BazelFlags {
       description = """
         The maximum number of attempts to retry a transient error. If set to 0, 
         retries are disabled.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "5s"
@@ -6653,7 +6653,7 @@ object BazelFlags {
         can be used: Days (d), hours (h), minutes (m), seconds (s), and 
         milliseconds (ms). If the unit is omitted, the value is interpreted as 
         seconds.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "60s"
@@ -6668,7 +6668,7 @@ object BazelFlags {
         Following units can be used: Days (d), hours (h), minutes (m), seconds (s), 
         and milliseconds (ms). If the unit is omitted, the value is interpreted as 
         seconds.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -6679,7 +6679,7 @@ object BazelFlags {
       description = """
         Whether to upload locally executed action results to the remote cache if 
         the remote cache supports it and the user is authorized to do so.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -6691,7 +6691,7 @@ object BazelFlags {
         If set to true, Bazel will compute the hash sum of all remote downloads 
         and  discard the remotely cached values if they don't match the expected 
         value.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
   // unknown line: Miscellaneous options, not otherwise categorized.:
@@ -6706,7 +6706,7 @@ object BazelFlags {
         setting this option to false will cause bazel to exit, rather than 
         continuing with the build. This option has no effect when 
         'discard_analysis_cache' is also set.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // none, all, packages or subpackages
   // default: "none"
@@ -6723,7 +6723,7 @@ object BazelFlags {
         line), and 'subpackages' (like 'packages', but also include subpackages). 
         For the 'packages' and 'subpackages' values //java/foo and //javatests/foo 
         are treated as one package)'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6735,7 +6735,7 @@ object BazelFlags {
         Forces test targets tagged 'manual' to be built. 'manual' tests are 
         excluded from processing. This option forces them to be built (but not 
         executed).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a 'name=value' assignment
   // may be used multiple times
@@ -6746,7 +6746,7 @@ object BazelFlags {
       name = "build_metadata",
       description = """
         Custom key-value string pairs to supply in a build event.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: ""
@@ -6762,7 +6762,7 @@ object BazelFlags {
         excluded tags. This option does not affect the set of tests executed with 
         the 'test' command; those are be governed by the test filtering options, 
         for example '--test_tag_filters'
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6774,7 +6774,7 @@ object BazelFlags {
         If specified, only *_test and test_suite rules will be built and other 
         targets specified on the command line will be ignored. By default 
         everything that was requested will be built.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a tri-state (auto, yes, no)
   // default: "auto"
@@ -6790,7 +6790,7 @@ object BazelFlags {
         the test previously failed. If set to 'yes', Bazel caches all test results 
         except for tests marked as external. If set to 'no', Bazel does not cache 
         any test results.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // yes, no or auto
   // default: "auto"
@@ -6801,7 +6801,7 @@ object BazelFlags {
       name = "color",
       description = """
         Use terminal controls to colorize output.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // none or lcov
   // default: "none"
@@ -6813,7 +6813,7 @@ object BazelFlags {
       description = """
         Specifies desired cumulative coverage report type. At this point only LCOV 
         is supported.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6829,7 +6829,7 @@ object BazelFlags {
         non-flag arguments are interpreted; instead of being targets to build they 
         are source filenames.  For each source filename an arbitrary target that 
         depends on it will be built.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -6844,7 +6844,7 @@ object BazelFlags {
         exists; if this section doesn't exist in any .rc file, Blaze fails with an 
         error. The config sections and flag combinations they are equivalent to are 
         located in the tools/*.blazerc config files.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // Path to a credential helper. It may be absolute, relative to the PATH environment variable, or %workspace%-relative. The path be optionally prefixed by a scope  followed by an '='. The scope is a domain name, optionally with a single leading '*' wildcard component. A helper applies to URIs matching its scope, with more specific scopes preferred. If a helper has no scope, it applies to every URI.
   // may be used multiple times
@@ -6868,7 +6868,7 @@ object BazelFlags {
     
         See https://blog.engflow.com/2023/10/09/configuring-bazels-credential-
         helper/ for instructions.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "30m"
@@ -6880,7 +6880,7 @@ object BazelFlags {
       description = """
         The default duration for which credentials supplied by a credential helper 
         are cached if the helper does not provide when the credentials expire.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "10s"
@@ -6894,7 +6894,7 @@ object BazelFlags {
     
         Credential helpers failing to respond within this timeout will fail the 
         invocation.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // yes, no or auto
   // default: "auto"
@@ -6905,7 +6905,7 @@ object BazelFlags {
       name = "curses",
       description = """
         Use terminal cursor controls to minimize scrolling output.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of package names
   // may be used multiple times
@@ -6923,7 +6923,7 @@ object BazelFlags {
         system may complain if it encounters a label '//x:y/z' if that is still 
         provided by another package_path entry.  Specifying --deleted_packages x/y 
         avoids this problem.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6934,7 +6934,7 @@ object BazelFlags {
       description = """
         Discard the analysis cache immediately after the analysis phase completes. 
         Reduces memory usage by ~10%, but makes further incremental builds slower.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -6946,7 +6946,7 @@ object BazelFlags {
       description = """
         A path to a directory where Bazel can read and write actions and action 
         outputs. If the directory does not exist, it will be created.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a one-line string
   // default: ""
@@ -6957,7 +6957,7 @@ object BazelFlags {
       name = "embed_label",
       description = """
         Embed source control revision or release label in binary
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -6971,7 +6971,7 @@ object BazelFlags {
         up lines starting with build:linux. Supported OS identifiers are linux, 
         macos, windows, freebsd, and openbsd. Enabling this flag is equivalent to 
         using --config=linux on Linux, --config=windows on Windows, etc.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -6986,7 +6986,7 @@ object BazelFlags {
         execution_log_json_file (text JSON format; mutually exclusive), --
         execution_log_sort (whether to sort the execution log), --subcommands (for 
         displaying subcommands in terminal output).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -7001,7 +7001,7 @@ object BazelFlags {
         proto. Related flags: --execution_log_binary_file (binary protobuf format; 
         mutually exclusive), --execution_log_sort (whether to sort the execution 
         log), --subcommands (for displaying subcommands in terminal output).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7015,7 +7015,7 @@ object BazelFlags {
         usage at the end of the invocation, at the cost of producing the log in 
         nondeterministic execution order. Only applies to the binary and JSON 
         formats; the compact format is never sorted.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7029,7 +7029,7 @@ object BazelFlags {
         apply to the tests belonging to the test suite, otherwise they will not. 
         Turning off this flag is useful when top-level aspects are applied at 
         command line: then they can analyze test_suite targets.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7041,7 +7041,7 @@ object BazelFlags {
         If true, then Blaze will cancel concurrently running tests on the first 
         successful run. This is only useful in combination with --
         runs_per_test_detects_flakes.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -7058,7 +7058,7 @@ object BazelFlags {
         protobuf format; mutually exclusive), --execution_log_json_file (text JSON 
         format; mutually exclusive), --subcommands (for displaying subcommands in 
         terminal output).
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a comma-separated list of regex expressions with prefix '-' specifying excluded paths
   // default: ""
@@ -7070,7 +7070,7 @@ object BazelFlags {
       description = """
         Deprecated in favor of aspects. Filters set of targets to schedule 
         extra_actions for.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7081,7 +7081,7 @@ object BazelFlags {
       description = """
         Deprecated in favor of aspects. Only schedules extra_actions for top level 
         targets.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7092,7 +7092,7 @@ object BazelFlags {
       description = """
         If true, then Bazel fetches the entire coverage data directory for each 
         test during a coverage run.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7102,7 +7102,7 @@ object BazelFlags {
       name = "experimental_generate_llvm_lcov",
       description = """
         If true, coverage for clang will generate an LCOV report.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7112,7 +7112,7 @@ object BazelFlags {
       name = "experimental_j2objc_header_map",
       description = """
         Whether to generate J2ObjC header map in parallel of J2ObjC transpilation.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7123,7 +7123,7 @@ object BazelFlags {
       description = """
         Whether to generate with shorter header path (uses "_ios" instead of 
         "_j2objc").
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // off, javabuilder or bazel
   // default: "javabuilder"
@@ -7134,7 +7134,7 @@ object BazelFlags {
       name = "experimental_java_classpath",
       description = """
         Enables reduced classpaths for Java compilations.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7145,7 +7145,7 @@ object BazelFlags {
       description = """
         Limit --experimental_run_android_lint_on_java_rules to Android-compatible 
         libraries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7155,7 +7155,7 @@ object BazelFlags {
       name = "experimental_rule_extension_api",
       description = """
         Enable experimental rule extension API and subrule APIs
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7165,7 +7165,7 @@ object BazelFlags {
       name = "experimental_run_android_lint_on_java_rules",
       description = """
         Whether to validate java_* sources.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7181,7 +7181,7 @@ object BazelFlags {
         individual action mnemonic, use the `--internal_spawn_scheduler` and `--
         strategy=<mnemonic>=dynamic` flags instead.
           Expands to: --internal_spawn_scheduler --spawn_strategy=dynamic
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7192,7 +7192,7 @@ object BazelFlags {
       description = """
         If true, experimental Windows support for --watchfs is enabled. Otherwise --
         watchfsis a non-op on Windows. Make sure to also enable --watchfs.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7204,7 +7204,7 @@ object BazelFlags {
         Explicitly specify a dependency to JUnit or Hamcrest in a java_test instead 
         of  accidentally obtaining from the TestRunner's deps. Only works for bazel 
         right now.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7216,7 +7216,7 @@ object BazelFlags {
         Allows the command to fetch external dependencies. If set to false, the 
         command will utilize any cached version of the dependency, and if none 
         exists, the command will result in failure.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: "https://www.googleapis.com/auth/cloud-platform"
@@ -7227,7 +7227,7 @@ object BazelFlags {
       name = "google_auth_scopes",
       description = """
         A comma-separated list of Google Cloud authentication scopes.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -7239,7 +7239,7 @@ object BazelFlags {
       description = """
         Specifies the file to get authentication credentials from. See https:
         //cloud.google.com/docs/authentication for details.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7251,7 +7251,7 @@ object BazelFlags {
         Whether to use 'Google Application Default Credentials' for authentication. 
         See https://cloud.google.com/docs/authentication for details. Disabled by 
         default.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: see description
@@ -7269,7 +7269,7 @@ object BazelFlags {
         with the service owner before enabling this setting. For example to set a 
         value of 30 seconds to this flag, it should be done as this --
         grpc_keepalive_time=30s
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // An immutable length of time.
   // default: "20s"
@@ -7284,7 +7284,7 @@ object BazelFlags {
         connection if it does not receive a ping reply after this much time. Times 
         are treated as second granularity; it is an error to set a value less than 
         one second. If keep-alive pings are disabled, then this setting is ignored.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -7295,7 +7295,7 @@ object BazelFlags {
       name = "host_java_launcher",
       description = """
         The Java launcher used by tools that are executed during a build.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -7307,7 +7307,7 @@ object BazelFlags {
       description = """
         Additional options to pass to javac when building tools that are executed 
         during a build.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -7320,7 +7320,7 @@ object BazelFlags {
         Additional options to pass to the Java VM when building tools that are 
         executed during  the build. These options will get added to the VM startup 
         options of each  java_binary target.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7333,7 +7333,7 @@ object BazelFlags {
         indicate that it supports sharding by touching the file at the path in 
         TEST_SHARD_STATUS_FILE. If false, a test runner that does not support 
         sharding will lead to all tests running in each shard.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7344,7 +7344,7 @@ object BazelFlags {
       description = """
         If true, java_binary is always executable. create_executable attribute is 
         removed.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7354,7 +7354,7 @@ object BazelFlags {
       name = "incompatible_disallow_symlink_file_to_dir",
       description = """
         No-op.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7364,7 +7364,7 @@ object BazelFlags {
       name = "incompatible_dont_use_javasourceinfoprovider",
       description = """
         No-op
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7375,7 +7375,7 @@ object BazelFlags {
       description = """
         If true, exclusive tests will run with sandboxed strategy. Add 'local' tag 
         to force an exclusive test run locally
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7388,7 +7388,7 @@ object BazelFlags {
         not inherit LD_LIBRARY_PATH. Use --action_env=ENV_VARIABLE if you want to 
         inherit specific environment variables from the client, but note that doing 
         so can prevent cross-user caching if a shared cache is used.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -7399,7 +7399,7 @@ object BazelFlags {
       name = "j2objc_translation_flags",
       description = """
         Additional options to pass to the J2ObjC tool.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // may be used multiple times
@@ -7415,7 +7415,7 @@ object BazelFlags {
           Expands to: --test_arg=--wrapper_script_flag=--debug --
           test_output=streamed --test_strategy=exclusive --test_timeout=9999 --
           nocache_test_results
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7426,7 +7426,7 @@ object BazelFlags {
       description = """
         Generate dependency information (for now, compile-time classpath) per Java 
         target.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7436,7 +7436,7 @@ object BazelFlags {
       name = "java_header_compilation",
       description = """
         Compile ijars directly from source.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -7447,7 +7447,7 @@ object BazelFlags {
       name = "java_language_version",
       description = """
         The Java language version
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -7460,7 +7460,7 @@ object BazelFlags {
         The Java launcher to use when building Java binaries.  If this flag is set 
         to the empty string, the JDK launcher is used. The "launcher" attribute 
         overrides this flag.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: "local_jdk"
@@ -7471,7 +7471,7 @@ object BazelFlags {
       name = "java_runtime_version",
       description = """
         The Java runtime version
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -7482,7 +7482,7 @@ object BazelFlags {
       name = "javacopt",
       description = """
         Additional options to pass to javac.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -7494,7 +7494,7 @@ object BazelFlags {
       description = """
         Additional options to pass to the Java VM. These options will get added to 
         the VM startup options of each java_binary target.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -7506,7 +7506,7 @@ object BazelFlags {
       description = """
         Specifies a binary to use to generate the list of classes that must be in 
         the main dex when compiling legacy multidex.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "15"
@@ -7518,7 +7518,7 @@ object BazelFlags {
       description = """
         Time to wait between terminating a local process due to timeout and 
         forcefully shutting it down.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -7529,7 +7529,7 @@ object BazelFlags {
       name = "optimizing_dexer",
       description = """
         Specifies a binary to use to do dexing without sharding.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an equals-separated mapping of repository name to path
   // may be used multiple times
@@ -7545,7 +7545,7 @@ object BazelFlags {
         working directory. If the given path starts with '%workspace%, it is 
         relative to the workspace root, which is the output of `bazel info 
         workspace`. If the given path is empty, then remove any previous overrides.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // colon-separated list of options
   // default: "%workspace%"
@@ -7558,7 +7558,7 @@ object BazelFlags {
         A colon-separated list of where to look for packages. Elements beginning 
         with '%workspace%' are relative to the enclosing workspace. If omitted or 
         empty, the default is the output of 'bazel info default-package-path'.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // may be used multiple times
@@ -7569,7 +7569,7 @@ object BazelFlags {
       name = "plugin",
       description = """
         Plugins to use in the build. Currently works with java_plugin.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7580,7 +7580,7 @@ object BazelFlags {
       description = """
         Show the command progress in the terminal title. Useful to see what bazel 
         is doing when having multiple terminal tabs.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: see description
@@ -7592,7 +7592,7 @@ object BazelFlags {
       description = """
         Specifies which version of ProGuard to use for code removal when building a 
         Java binary.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/proto:protoc"
@@ -7603,7 +7603,7 @@ object BazelFlags {
       name = "proto_compiler",
       description = """
         The label of the proto-compiler.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/proto:cc_toolchain"
@@ -7614,7 +7614,7 @@ object BazelFlags {
       name = "proto_toolchain_for_cc",
       description = """
         Label of proto_lang_toolchain() which describes how to compile C++ protos
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/j2objc:j2objc_proto_toolchain"
@@ -7625,7 +7625,7 @@ object BazelFlags {
       name = "proto_toolchain_for_j2objc",
       description = """
         Label of proto_lang_toolchain() which describes how to compile j2objc protos
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/proto:java_toolchain"
@@ -7636,7 +7636,7 @@ object BazelFlags {
       name = "proto_toolchain_for_java",
       description = """
         Label of proto_lang_toolchain() which describes how to compile Java protos
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a build target label
   // default: "@bazel_tools//tools/proto:javalite_toolchain"
@@ -7648,7 +7648,7 @@ object BazelFlags {
       description = """
         Label of proto_lang_toolchain() which describes how to compile JavaLite 
         protos
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -7659,7 +7659,7 @@ object BazelFlags {
       name = "protocopt",
       description = """
         Additional options to pass to the protobuf compiler.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7670,7 +7670,7 @@ object BazelFlags {
       description = """
         If true, any shard in which at least one run/attempt passes and at least 
         one run/attempt fails gets a FLAKY status.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: see description
@@ -7688,7 +7688,7 @@ object BazelFlags {
         all others: /bin/bash). Note that using a shell that is not compatible with 
         bash may lead to build failures or runtime failures of the generated 
         binaries.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7698,7 +7698,7 @@ object BazelFlags {
       name = "show_loading_progress",
       description = """
         If enabled, causes Bazel to print "Loading package:" messages.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7708,7 +7708,7 @@ object BazelFlags {
       name = "show_progress",
       description = """
         Display progress messages during a build.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a double
   // default: "0.2"
@@ -7719,7 +7719,7 @@ object BazelFlags {
       name = "show_progress_rate_limit",
       description = """
         Minimum number of seconds between progress messages in the output.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7729,7 +7729,7 @@ object BazelFlags {
       name = "show_timestamps",
       description = """
         Include timestamps in messages
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // may be used multiple times
@@ -7743,7 +7743,7 @@ object BazelFlags {
         test executable. Can be used multiple times to specify several arguments. 
         If multiple tests are executed, each of them will receive identical 
         arguments. Used only by the 'bazel test' command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -7755,7 +7755,7 @@ object BazelFlags {
       description = """
         Specifies a filter to forward to the test framework.  Used to limit the 
         tests run. Note that this does not affect which targets are built.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: ""
@@ -7771,7 +7771,7 @@ object BazelFlags {
         used for each language should be the same as the language prefix in the 
         *_test rule, e.g. one of 'cc', 'java', 'py', etc. This option affects --
         build_tests_only behavior and the test command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "-1"
@@ -7782,7 +7782,7 @@ object BazelFlags {
       name = "test_result_expiration",
       description = """
         This option is deprecated and has no effect.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7793,7 +7793,7 @@ object BazelFlags {
       description = """
         Forwards fail fast option to the test runner. The test runner should stop 
         execution upon first failure.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // explicit, disabled or forced=k where k is the number of shards to enforce
   // default: "explicit"
@@ -7807,7 +7807,7 @@ object BazelFlags {
         'shard_count' BUILD attribute is present. 'disabled' to never use test 
         sharding. 'forced=k' to enforce 'k' shards for testing regardless of the 
         'shard_count' BUILD attribute.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of values: small, medium, large or enormous
   // default: ""
@@ -7822,7 +7822,7 @@ object BazelFlags {
         be found that contain at least one included size and do not contain any 
         excluded sizes. This option affects --build_tests_only behavior and the 
         test command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of options
   // default: ""
@@ -7837,7 +7837,7 @@ object BazelFlags {
         found that contain at least one included tag and do not contain any 
         excluded tags. This option affects --build_tests_only behavior and the test 
         command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // comma-separated list of values: short, moderate, long or eternal
   // default: ""
@@ -7852,7 +7852,7 @@ object BazelFlags {
         targets will be found that contain at least one included timeout and do not 
         contain any excluded timeouts. This option affects --build_tests_only 
         behavior and the test command.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -7864,7 +7864,7 @@ object BazelFlags {
       description = """
         Specify a path to a TLS certificate that is trusted to sign server 
         certificates.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -7876,7 +7876,7 @@ object BazelFlags {
       description = """
         Specify the TLS client certificate to use; you also need to provide a 
         client key to enable client authentication.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: see description
@@ -7888,7 +7888,7 @@ object BazelFlags {
       description = """
         Specify the TLS client key to use; you also need to provide a client 
         certificate to enable client authentication.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: ""
@@ -7900,7 +7900,7 @@ object BazelFlags {
       description = """
         The Java language version used to execute the tools that are needed during 
         a build
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a string
   // default: "remotejdk_11"
@@ -7911,7 +7911,7 @@ object BazelFlags {
       name = "tool_java_runtime_version",
       description = """
         The Java runtime version used to execute tools during the build
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // an integer
   // default: "8"
@@ -7924,7 +7924,7 @@ object BazelFlags {
         Number of concurrent actions shown in the detailed progress bar; each 
         action is shown on a separate line. The progress bar always shows at least 
         one one, all numbers less than 1 are mapped to 1.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "true"
   @JvmField
@@ -7936,7 +7936,7 @@ object BazelFlags {
         If enabled, this option causes Java compilation to use interface jars. This 
         will result in faster incremental compilation, but error messages can be 
         different.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // default: "false"
   @JvmField
@@ -7951,7 +7951,7 @@ object BazelFlags {
         conjunction with --experimental_windows_watchfs. On any OS: The behavior is 
         undefined if your workspace is on a network file system, and files are 
         edited on a remote machine.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // a path
   // default: ""
@@ -7965,7 +7965,7 @@ object BazelFlags {
         information about the workspace in the form of key/value pairs.  See the 
         User's Manual for the full specification. Also see 
         tools/buildstamp/get_workspace_status for an example.
-      """.trimMargin(),
+      """.trimIndent(),
     )
   // unknown line: 
 }
