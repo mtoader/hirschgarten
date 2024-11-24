@@ -7,7 +7,9 @@ import com.intellij.model.psi.PsiSymbolReference
 import com.intellij.model.psi.PsiSymbolReferenceService
 import com.intellij.patterns.PlatformPatterns.psiElement
 import com.intellij.psi.PsiElement
+import com.intellij.psi.util.findParentOfType
 import org.jetbrains.bazel.languages.bazelrc.elements.BazelrcTokenTypes
+import org.jetbrains.bazel.languages.bazelrc.flags.BazelCommands
 import org.jetbrains.bazel.languages.bazelrc.flags.BazelFlagSymbol
 import org.jetbrains.bazel.languages.bazelrc.flags.Flag
 import org.jetbrains.bazel.languages.bazelrc.flags.OptionEffectTag
@@ -83,6 +85,11 @@ class BazelrcFlagAnnotator : Annotator {
           .needsUpdateOnTyping()
           .create()
 
+      isNotApplicable(flag, element.findParentOfType<BazelrcLine>()) -> holder.newAnnotation(
+        HighlightSeverity.INFORMATION,
+        "Flag: '${element.text}' not appropriate to the command",
+      )
+
       else -> {}
     }
   }
@@ -94,4 +101,9 @@ class BazelrcFlagAnnotator : Annotator {
   private fun isNoOp(flag: Flag) = flag.option.effectTags.contains(OptionEffectTag.NO_OP)
 
   private fun isOld(flag: Flag, name: String) = "--${flag.option.oldName}" == name
+
+  private fun isNotApplicable(flag: Flag, command: BazelrcLine?) = command?.name?.let {
+    println("checking ${flag.name} in $it")
+    BazelCommands[it]?.contains(flag.name)
+  } == true
 }

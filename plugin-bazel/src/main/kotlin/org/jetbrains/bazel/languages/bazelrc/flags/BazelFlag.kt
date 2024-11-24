@@ -1,8 +1,5 @@
 package org.jetbrains.bazel.languages.bazelrc.flags
 
-import kotlinx.collections.immutable.PersistentMap
-import kotlinx.collections.immutable.toPersistentMap
-import java.lang.reflect.Field
 import kotlin.reflect.KProperty
 
 sealed class Flag {
@@ -31,31 +28,11 @@ sealed class Flag {
   /** Lazily load and return the @Option() annotation associated with this value, if any. */
   val option: Option by object : LazyExtension<Option, Flag>() {
     override fun initValue(o: Flag): Option =
-      KnownFlags.declaredFieldsMap[o.name]?.getDeclaredAnnotation(Option::class.java) ?: Option(o.name)
+      BazelFlags.declaredFieldsMap[o.name]?.getDeclaredAnnotation(Option::class.java) ?: Option(o.name)
   }
 
   companion object {
-    internal val KnownFlags.declaredFieldsMap by object : LazyExtension<PersistentMap<String, Field>, KnownFlags>() {
-      override fun initValue(o: KnownFlags): PersistentMap<String, Field> =
-        KnownFlags::class.java.declaredFields
-          .filter { it.getDeclaredAnnotation(Option::class.java) != null }
-          .associateBy { it.name }
-          .toPersistentMap()
-    }
-
-    private val KnownFlags.allFlags by object : LazyExtension<PersistentMap<String, Flag>, KnownFlags>() {
-      override fun initValue(o: KnownFlags): PersistentMap<String, Flag> =
-        KnownFlags.declaredFieldsMap
-          .values
-          .mapNotNull {
-            it.getDeclaredAnnotation(Option::class.java)?.let { op -> Pair(it, op) }
-          }.mapNotNull { (f, op) -> (f.get(o) as? Flag)?.let { flag -> Pair(flag, op) } }
-          .flatMap { knownFlagNames(it) }
-          .toMap()
-          .toPersistentMap()
-    }
-
-    fun byName(name: String) = KnownFlags.allFlags[name]
+    fun byName(name: String) = BazelFlags.allFlags[name]
   }
 }
 

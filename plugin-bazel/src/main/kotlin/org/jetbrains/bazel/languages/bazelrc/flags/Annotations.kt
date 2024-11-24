@@ -23,6 +23,7 @@ enum class OptionEffectTag {
 enum class OptionMetadataTag {
   EXPERIMENTAL,
   INCOMPATIBLE_CHANGE,
+  IMMUTABLE,
   DEPRECATED,
   HIDDEN,
 }
