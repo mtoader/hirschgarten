@@ -68,6 +68,7 @@ class BazelInfoResolver(private val bazelRunner: BazelRunner) {
       outputBase = Paths.get(extract(OUTPUT_BASE)),
       workspaceRoot = Paths.get(extract(WORKSPACE)),
       release = bazelReleaseVersion,
+      bazelVersion = extract(RELEASE),
       isBzlModEnabled = isBzlModEnabled,
       isWorkspaceEnabled = isWorkspaceEnabled,
     )
